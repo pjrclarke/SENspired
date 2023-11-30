@@ -43,13 +43,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'event',
     'cloudinary',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     
 ]
 
@@ -75,7 +75,10 @@ ROOT_URLCONF = 'senspired.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,6 +90,9 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_LOADERS = ('django.template.loaders.filesystem.Loader',
+ 'django.template.loaders.app_directories.Loader')
 
 WSGI_APPLICATION = 'senspired.wsgi.application'
 
@@ -122,6 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ACCOUNT_APP = 'allauth.account'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
