@@ -30,7 +30,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://senspired-efbab7dd64be.herokuapp.com/', 'localhost','127.0.0.1']
+ALLOWED_HOSTS = ['senspired-efbab7dd64be.herokuapp.com', 'senspired.herokuapp.com','localhost','127.0.0.1']
 
 
 # Application definition
