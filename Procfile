@@ -1,1 +1,1 @@
-web: gunicorn SENspired.wsgi
+web: gunicorn senspired.wsgi
