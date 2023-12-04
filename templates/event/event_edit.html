@@ -1,14 +1,16 @@
 {% extends 'event/base.html' %}
-
+{% load static %}
 {% block content %}
 <div class="container mt-4">
-    <h2 class="text-center">{{ form.instance.title|default:"New Event" }}</h2>
+    <h2 class="text-center">{{ form.instance.title|default:"Edit Event" }}</h2>
 
     <div class="row justify-content-center">
         <div class="col-md-8">
-         
             <form method="post" enctype="multipart/form-data">
-               
+                {% csrf_token %}
+                
+                {{ form.media }} {# Ensure this line works to include necessary JS and CSS files #}
+                
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -18,7 +20,6 @@
                     <tbody>
                         <tr>
                             <td colspan="2">
-                                {% csrf_token %}
                                 {{ form.as_table }}
                             </td>
                         </tr>

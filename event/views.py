@@ -5,6 +5,7 @@ from .models import Event, Attendee
 from .forms import EventForm
 
 
+
 def event_list(request):
     events = Event.objects.all()
     return render(request, 'event/event_list.html', {'events': events})
@@ -12,7 +13,14 @@ def event_list(request):
 def event_detail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     attendees = Attendee.objects.filter(event=event)
-    return render(request, 'event/event_detail.html', {'event': event, 'attendees': attendees})
+    remaining_capacity = event.max_capacity - attendees.count()
+
+    return render(
+        request,
+        'event/event_detail.html',
+        {'event': event, 'attendees': attendees, 'remaining_capacity': remaining_capacity}
+    )
+
 
 @login_required
 def create_event(request):
