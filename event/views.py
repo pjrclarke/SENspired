@@ -25,7 +25,7 @@ def event_detail(request, event_id):
 @login_required
 def create_event(request):
     if request.method == 'POST':
-        form = EventForm(request.POST, request.FILES)
+        form = EventForm(request.POST, request.FILES, instance=event)
         if form.is_valid():
             event = form.save(commit=False)
             event.organizer = request.user

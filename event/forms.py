@@ -6,8 +6,7 @@ class EventForm(forms.ModelForm):
     class Meta:
         model = Event
         fields = ['title', 'description', 'image', 'date', 'time', 'max_capacity', 'location']
-        
-    widgets = {
-        'date': DatePickerInput(range_from="date"),
-        'time': TimePickerInput(),
-    }
+        widgets = {
+            'date': DatePickerInput(attrs={'class': 'form-control'}),
+            'time': TimePickerInput(attrs={'class': 'form-control'}),
+        }

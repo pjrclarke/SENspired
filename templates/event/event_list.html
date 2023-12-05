@@ -19,6 +19,7 @@
                             <!-- Display number of attendees -->
                             <p class="card-text">Number of Attendees: {{ event.attendee_set.count }}</p>
                             <div class="btn-group">
+                                <a href="{% url 'event_detail' event.id %}" class="btn btn-secondary btn-sm">Overview</a>
                                 <a href="{% url 'event_edit' event.id %}" class="btn btn-success btn-sm">Edit</a>
                                 <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ event.id }}">Delete</button>
                             </div>
