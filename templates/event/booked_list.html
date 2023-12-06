@@ -1,0 +1,94 @@
+{% extends 'event/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Booked Events</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for event in events %}
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{% if event.image %}{{ event.image.url }}{% else %}{% static 'images/default.png' %}{% endif %}" class="card-img-top" alt="{{ event.title }}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ event.title }}</h5>
+                            <p class="card-text">{{ event.date }}</p>
+                            <p class="card-text">{{ event.time }}</p>
+                            <p class="card-text">{{ event.location }}</p>
+                            <a href="{% url 'event_detail' event.id %}" class="btn btn-secondary btn-sm">View Details</a>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#cancelModal{{ event.id }}">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cancel Modal for each booked event -->
+                <div class="modal fade" id="cancelModal{{ event.id }}" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel{{ event.id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="cancelModalLabel{{ event.id }}">Cancel Booking</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <p>Are you sure you want to cancel your booking for "{{ event.title }}"?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                                <a href="#" id="cancelBookingBtn" data-event-id="{{ event.id }}" class="btn btn-danger btn-sm">Cancel Booking</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <p class="card-text">You haven't booked any events yet.</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script>
+        // Function to handle cancellation response
+        function handleCancelResponse(response) {
+            if (response.success) {
+                // Show a Bootstrap alert for success
+                showAlert('Booking Canceled Successfully', 'alert-success');
+            } else {
+                // Show a Bootstrap alert for failure with the provided message
+                showAlert(response.message, 'alert-danger');
+            }
+    
+            // Close the modal (if it is open)
+            $('#cancelBookingModal').modal('hide');
+        }
+    
+        // Function to show a Bootstrap alert
+        function showAlert(message, alertClass) {
+            var alertHtml = '<div class="alert ' + alertClass + ' alert-dismissible fade show" role="alert">' +
+                            message +
+                            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                            '<span aria-hidden="true">&times;</span></button></div>';
+    
+            // Append the alert to a container (e.g., a div with id="alertsContainer")
+            $('#alertsContainer').append(alertHtml);
+        }
+    
+        // Attach a click event to the "Cancel Booking" button to handle the cancellation
+        $(document).on('click', '#cancelBookingBtn', function () {
+            var event_id = $(this).data('event-id');
+    
+            // Perform the cancellation via AJAX
+            $.post('{% url "perform_cancel_booking" event_id %}', function (response) {
+                // Handle the cancellation response
+                handleCancelResponse(response);
+            });
+        });
+    </script>
+{% endblock %}
