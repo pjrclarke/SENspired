@@ -1,49 +1,55 @@
 {% extends 'event/base.html' %}
-
+{% load static %}
 {% block content %}
+<div class="container-index">
     <div class="container mt-4">
-        <h2 class="text-center mb-4">Event Overview</h2>
-        <table class="table table-bordered mx-auto">
-            <tbody>
-                <tr>
-                    <th>Title</th>
-                    <td>{{ event.title }}</td>
-                </tr>
-                <tr>
-                    <th>Description</th>
-                    <td>{{ event.description }}</td>
-                </tr>
-                <tr>
-                    <th>Date</th>
-                    <td>{{ event.date }}</td>
-                </tr>
-                <tr></tr>
-                    <td>{{ event.image }}</td>
-                </tr>
-                <tr>
-                    <th>Time</th>
-                    <td>{{ event.time }}</td>
-                </tr>
-                <tr>
-                    <th>Max Capacity</th>
-                    <td>{{ event.max_capacity }}</td>
-                </tr>
-                <tr>
-                    <th>Location</th>
-                    <td>{{ event.location }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="text-center mt-4">
-            {% if user.is_authenticated %}
-                {% if user != event.organizer %}
-                    <a href="{% url 'register_event' event.id %}" class="btn btn-primary">Register for Event</a>
-                {% endif %}
-                <a href="{% url 'event_list' %}" class="btn btn-success mx-2">Confirm</a>
-                <a href="{% url 'event_edit' event.id %}" class="btn btn-warning">Edit</a>
-            {% else %}
-                <p>Please log in to register for this event.</p>
-            {% endif %}
+        <h2 class="text-center mb-4">{{ event.title }}</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% if event.image %}{{ event.image.url }}{% else %}{% static 'images/default.png' %}{% endif %}" class="img-fluid" alt="{{ event.title }}">
+            </div>
+            <div class="col-md-6">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Description</th>
+                            <td>{{ event.description }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Date</th>
+                            <td>{{ event.date }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Time</th>
+                            <td>{{ event.time }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Max Capacity</th>
+                            <td>{{ event.max_capacity }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Location</th>
+                            <td>{{ event.location }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Published</th>
+                            <td>{% if event.is_published %}LIVE{% else %}HIDDEN{% endif %}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center mt-4">
+                    {% if user.is_authenticated %}
+                        {% if user != event.organizer %}
+                            <a href="{% url 'register_event' event.id %}" class="btn btn-primary">Register for Event</a>
+                        {% endif %}
+                        <a href="{% url 'event_list' %}" class="btn btn-success mx-2">Confirm</a>
+                        <a href="{% url 'event_edit' event.id %}" class="btn btn-warning">Edit</a>
+                    {% else %}
+                        <p>Please log in to register for this event.</p>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
+</div>
 {% endblock %}

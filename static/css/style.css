@@ -109,21 +109,12 @@ body {
 
 /* ------------------------- INDEX.HTML ------------------------- */
 
-.overlay-container {
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1; /* Place it above the background image */
-    width:100%;
-}
-
 .container-index {
-    margin-top:-00px;
+    margin-top:-100px;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(rgba(255, 0, 0, 0.7), rgba(255, 255, 0, 0.7));
+    background: linear-gradient(rgba(7, 151, 152, 0.7), rgba(102, 0, 205, 0.7));
     z-index: 2;
 }
 

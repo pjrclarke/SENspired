@@ -5,13 +5,13 @@
     <h2 class="text-center">{{ form.instance.title|default:"Edit Event" }}</h2>
 
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 container-index">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 
                 {{ form.media }} {# Ensure this line works to include necessary JS and CSS files #}
                 
-                <table class="table table-bordered">
+                <table class="table table-borderless">
                     <thead>
                         <tr>
                             <th colspan="2" class="text-center">Event Details</th>

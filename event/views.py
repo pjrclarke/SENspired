@@ -4,12 +4,22 @@ from django.contrib import messages
 from .models import Event, Attendee
 from .forms import EventForm
 from django.contrib.admin.views.decorators import staff_member_required
+from django.db.models import Case, When, Value, IntegerField
+
 
 # STAFF ACCESS VIEWS
 
 @staff_member_required
 def event_list(request):
     events = Event.objects.all()
+    events = Event.objects.order_by(
+        Case(
+            When(is_published=True, then=Value(0)),
+            default=Value(1),
+            output_field=IntegerField(),
+        ),
+        'date'
+    )
     return render(request, 'event/event_list.html', {'events': events})
 
 @staff_member_required
@@ -80,6 +90,8 @@ def register_event(request, event_id):
 @login_required
 def event_book(request):
     events = Event.objects.all()
+    events = Event.objects.filter(is_published=True).order_by('date')
+
     return render(request, 'event/event_book.html', {'events': events})
 
 @login_required
@@ -117,7 +129,7 @@ def book_event(request, event_id):
             Attendee.objects.create(user=request.user, event=event)
 
         return redirect('event_public_detail', event_id=event.id)
-
+    
     return redirect('event_public_detail', event_id=event_id)
 
 # CANCELLING BOOKING
@@ -135,6 +147,17 @@ def perform_cancel_booking(request, event_id):
         messages.error(request, 'Booking not found.')
 
     return redirect('booked_list')
+
+
+def toggle_event_visibility(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+    
+    if request.method == 'POST':
+        # Toggle the is_hidden status
+        event.is_published = not event.is_published
+        event.save()
+
+    return redirect('event_list')
 
 # ACCOUNT OVERVIEW
 

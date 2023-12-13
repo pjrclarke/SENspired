@@ -12,6 +12,8 @@ class Event(models.Model):
     organizer = models.ForeignKey(User, on_delete=models.CASCADE)
     attendees = models.ManyToManyField(User, through='Attendee', related_name='attended_events')
     max_capacity = models.PositiveIntegerField(default=0)
+    is_published = models.BooleanField(default=True)
+
 
     def __str__(self):
         return self.title
