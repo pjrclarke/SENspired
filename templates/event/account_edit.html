@@ -1,0 +1,25 @@
+{% extends 'event/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Edit Account Information</h2>
+    <form method="post" enctype="multipart/form-data" action="{% url 'perform_edit_account' %}">
+      {% csrf_token %}
+
+      <label for="first_name">First Name:</label>
+      <input type="text" name="first_name" value="{{ user_data.first_name }}" required>
+      
+      <label for="last_name">Last Name:</label>
+      <input type="text" name="last_name" value="{{ user_data.last_name }}" required>  
+
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" value="{{ user_data.username }}" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="{{ user_data.email }}" required>
+
+      
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+  </div>
+{% endblock %}

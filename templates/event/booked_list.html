@@ -3,6 +3,9 @@
 
 {% block content %}
     <div class="container mt-4">
+        {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div> 
+        {% endfor %}            
         <h2 class="text-center mb-4">Booked Events</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for event in events %}
@@ -14,10 +17,9 @@
                             <p class="card-text">{{ event.date }}</p>
                             <p class="card-text">{{ event.time }}</p>
                             <p class="card-text">{{ event.location }}</p>
-                            <a href="{% url 'event_detail' event.id %}" class="btn btn-secondary btn-sm">View Details</a>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#cancelModal{{ event.id }}">
-                                Cancel
+                                Cancel Booking
                             </button>
                         </div>
                     </div>
@@ -38,7 +40,10 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                                <a href="#" id="cancelBookingBtn" data-event-id="{{ event.id }}" class="btn btn-danger btn-sm">Cancel Booking</a>
+                                <form method="post" action="{% url 'perform_cancel_booking' event.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm">Cancel Booking</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -54,41 +59,5 @@
             {% endfor %}
         </div>
     </div>
-    <script>
-        // Function to handle cancellation response
-        function handleCancelResponse(response) {
-            if (response.success) {
-                // Show a Bootstrap alert for success
-                showAlert('Booking Canceled Successfully', 'alert-success');
-            } else {
-                // Show a Bootstrap alert for failure with the provided message
-                showAlert(response.message, 'alert-danger');
-            }
-    
-            // Close the modal (if it is open)
-            $('#cancelBookingModal').modal('hide');
-        }
-    
-        // Function to show a Bootstrap alert
-        function showAlert(message, alertClass) {
-            var alertHtml = '<div class="alert ' + alertClass + ' alert-dismissible fade show" role="alert">' +
-                            message +
-                            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
-                            '<span aria-hidden="true">&times;</span></button></div>';
-    
-            // Append the alert to a container (e.g., a div with id="alertsContainer")
-            $('#alertsContainer').append(alertHtml);
-        }
-    
-        // Attach a click event to the "Cancel Booking" button to handle the cancellation
-        $(document).on('click', '#cancelBookingBtn', function () {
-            var event_id = $(this).data('event-id');
-    
-            // Perform the cancellation via AJAX
-            $.post('{% url "perform_cancel_booking" event_id %}', function (response) {
-                // Handle the cancellation response
-                handleCancelResponse(response);
-            });
-        });
-    </script>
+
 {% endblock %}

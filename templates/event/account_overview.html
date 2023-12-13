@@ -1,0 +1,25 @@
+{% extends 'event/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Account Overview</h2>
+    <!-- Display user information here -->
+    <p>First Name: {{ user.first_name }}</p>
+    <p>Surname: {{ user.last_name }}</p>
+    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+
+    <!-- Add links to edit and delete account -->
+    <a href="{% url 'account_edit' %}" class="btn btn-primary">Edit Account</a>
+    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#deleteAccountModal">Delete Account</a>
+</div>
+
+<!-- Delete Account Modal -->
+<div class="modal fade" id="deleteAccountModal" tabindex="-1" role="dialog" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
+    <!-- Add your delete account modal content here -->
+</div>
+
+
+{% endblock %}

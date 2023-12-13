@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from allauth.account.views import LoginView, LogoutView, SignupView, PasswordChangeView, PasswordResetView, PasswordResetDoneView
+
 
 handler404 = 'event.views.custom_404'
 
@@ -22,4 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('event.urls')),
     path('accounts/', include('allauth.urls')),
+    
 ]

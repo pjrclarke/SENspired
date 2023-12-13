@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-
-
 class Event(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
@@ -24,4 +22,4 @@ class Attendee(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.event.title}"
-
+    

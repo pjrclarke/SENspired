@@ -4,7 +4,6 @@ from django.contrib import messages
 from .models import Event, Attendee
 from .forms import EventForm
 from django.contrib.admin.views.decorators import staff_member_required
-from django.http import JsonResponse
 
 # STAFF ACCESS VIEWS
 
@@ -103,7 +102,6 @@ def custom_404(request, exception):
 # USER BOOKED EVENTS
 
 def booked_list(request):
-    # Fetch the events that the user has booked
     booked_events = Attendee.objects.filter(user=request.user).values_list('event', flat=True)
     events = Event.objects.filter(id__in=booked_events)
     return render(request, 'event/booked_list.html', {'events': events})
@@ -112,37 +110,75 @@ def booked_list(request):
 def book_event(request, event_id):
     if request.method == 'POST':
         event = get_object_or_404(Event, pk=event_id)
-        # Check if the user is already booked for this event
-        if not Attendee.objects.filter(user=request.user, event=event).exists():
-            # Book the event for the user
-            Attendee.objects.create(user=request.user, event=event)
-            # Redirect to a success page or event detail page
-            return redirect('event_public_detail', event_id=event.id)
-        else:
-            # Redirect to a page indicating that the user is already booked
-            return redirect('event_public_detail', event_id=event.id)
+        
+        quantity = int(request.POST.get('quantity', 1))
 
-    # Handle the case where the user accesses the page without a POST request
-    # (e.g., directly accessing the URL)
+        for _ in range(quantity):
+            Attendee.objects.create(user=request.user, event=event)
+
+        return redirect('event_public_detail', event_id=event.id)
+
     return redirect('event_public_detail', event_id=event_id)
 
 # CANCELLING BOOKING
 
 @login_required
 def perform_cancel_booking(request, event_id):
-    if request.method == 'POST':
-        event = get_object_or_404(Event, pk=event_id)
-        # Check if the user has booked this event
-        booking = Attendee.objects.filter(user=request.user, event=event).first()
+    event = get_object_or_404(Event, pk=event_id)
 
-        if booking:
-            # Delete the booking for the user and event
-            booking.delete()
-            # Return a JSON response indicating success
-            return JsonResponse({'success': True})
-        else:
-            # Return a JSON response indicating that the user hasn't booked this event
-            return JsonResponse({'success': False, 'message': 'You have not booked this event.'})
+    booking = Attendee.objects.filter(user=request.user, event=event).first()
+
+    if booking:
+        booking.delete()
+        messages.success(request, 'Booking cancelled successfully.')
     else:
-        # Return a JSON response indicating an error for non-POST requests
-        return JsonResponse({'success': False, 'message': 'Invalid request method.'})
+        messages.error(request, 'Booking not found.')
+
+    return redirect('booked_list')
+
+# ACCOUNT OVERVIEW
+
+@login_required
+def account_overview(request):
+    return render(request, 'event/account_overview.html')
+
+
+
+@login_required
+def account_edit(request):
+    user_data = {
+        'first_name': request.user.first_name,
+        'last_name': request.user.last_name,
+        'username': request.user.username,
+        'email': request.user.email,
+    }
+    return render(request, 'event/account_edit.html', {'user_data': user_data})
+
+@login_required
+def perform_edit_account(request):
+    if request.method == 'POST':
+
+        if 'profile_image' in request.FILES:
+            request.user.profile_image = request.FILES['profile_image']
+
+        request.user.first_name = request.POST.get('first_name', '')
+        request.user.last_name = request.POST.get('last_name', '')
+        request.user.username = request.POST.get('username', '')
+        request.user.email = request.POST.get('email', '')
+
+        request.user.save()
+
+        return redirect('account_overview')  
+
+    user_data = {
+        'first_name': request.user.first_name or '',
+        'last_name': request.user.last_name or '',
+        'username': request.user.username,
+        'email': request.user.email,
+    }
+
+    return render(request, 'event/account_edit.html', {'user_data': user_data})
+
+
+def coming_soon(request):
+    return render(request, 'event/coming_soon.html')
