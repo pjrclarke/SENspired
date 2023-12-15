@@ -5,6 +5,7 @@ from .models import Event, Attendee
 from .forms import EventForm
 from django.contrib.admin.views.decorators import staff_member_required
 from django.db.models import Case, When, Value, IntegerField
+from django.utils import timezone
 
 
 # STAFF ACCESS VIEWS
@@ -38,7 +39,7 @@ def event_detail(request, event_id):
 @login_required
 def create_event(request):
     if request.method == 'POST':
-        form = EventForm(request.POST, request.FILES, instance=event)
+        form = EventForm(request.POST, request.FILES)
         if form.is_valid():
             event = form.save(commit=False)
             event.organizer = request.user
@@ -79,7 +80,6 @@ def event_delete(request, event_id):
 
 @staff_member_required
 @login_required
-
 def register_event(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     Attendee.objects.get_or_create(user=request.user, event=event)
@@ -89,9 +89,9 @@ def register_event(request, event_id):
 
 @login_required
 def event_book(request):
-    events = Event.objects.all()
-    events = Event.objects.filter(is_published=True).order_by('date')
-
+    current_date = timezone.now().date()
+    events = Event.objects.filter(is_published=True, date__gte=current_date).order_by('date')
+    
     return render(request, 'event/event_book.html', {'events': events})
 
 @login_required

@@ -3,7 +3,7 @@ from .models import Event
 from bootstrap_datepicker_plus.widgets import DatePickerInput, TimePickerInput
 
 class EventForm(forms.ModelForm):
-    is_published = forms.BooleanField(label='Published', required=False)
+    is_published = forms.BooleanField(label='Published', required=False, widget=forms.CheckboxInput(attrs={'class': 'custom-checkbox'}))
 
     class Meta:
         model = Event

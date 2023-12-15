@@ -9,7 +9,7 @@
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 
-                {{ form.media }} {# Ensure this line works to include necessary JS and CSS files #}
+                {{ form.media }}
                 
                 <table class="table table-borderless">
                     <thead>

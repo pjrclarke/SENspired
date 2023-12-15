@@ -13,6 +13,12 @@ body {
     color: black;
     margin: 0;
     padding: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body.fade-in {
+    opacity: 1;
 }
 
 /* ------------------------- BASE.HTML ------------------------- */
@@ -35,6 +41,14 @@ body {
     height: 20%; 
     background: linear-gradient(to bottom, transparent 0%, white 100%);
     z-index: 0;
+}
+
+.index-page .background img {
+    display: none;  /* Hide the background image only on the index page */
+}
+
+.index-page .background::after {
+    background: none;  /* Remove the gradient effect only on the index page */
 }
 .logo {
     max-height: 80px; 
@@ -108,9 +122,16 @@ body {
 }
 
 /* ------------------------- INDEX.HTML ------------------------- */
-
 .container-index {
-    margin-top:-100px;
+    margin-top: 150px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(rgba(7, 151, 152, 0.7), rgba(102, 0, 205, 0.7));
+    z-index: 2;
+}
+.container-index2 {
+    margin-top: -150px;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
@@ -158,6 +179,19 @@ p {
     border-radius: 10px;
 }
 
+.rounded-child-friendly {
+    border-radius: 10px; /* Adjust the radius to your preference */
+}
+
+.border-colored1 {
+    border: 4px solid #008cff; /* Change the color code to the color you want */
+}
+.border-colored2 {
+    border: 4px solid #ff0000; /* Change the color code to the color you want */
+}
+.border-colored3 {
+    border: 4px solid #00ff33; /* Change the color code to the color you want */
+}
 /*  ------------------------- KEYFRAMES ------------------------- */
 
 @keyframes jello-home {
