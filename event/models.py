@@ -25,3 +25,20 @@ class Attendee(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.event.title}"
     
+class Booking(models.Model):
+    
+    STATUS_CHOICES = [
+        ('waiting', 'Waiting Approval'),
+        ('approved', 'Approved'),
+        ('denied', 'Denied'),
+    ]
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    event_name = models.CharField(max_length=255)
+    date = models.DateField()
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='waiting')
+
+    def __str__(self):
+        return f"{self.event_name} - {self.date}"

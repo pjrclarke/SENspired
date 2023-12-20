@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Event, Attendee
-from .forms import EventForm
+from .models import Event, Attendee, Booking
+from .forms import EventForm, BookingForm
 from django.contrib.admin.views.decorators import staff_member_required
 from django.db.models import Case, When, Value, IntegerField
 from django.utils import timezone
+
 
 
 # STAFF ACCESS VIEWS
@@ -21,7 +22,8 @@ def event_list(request):
         ),
         'date'
     )
-    return render(request, 'event/event_list.html', {'events': events})
+    bookings = Booking.objects.all()
+    return render(request, 'event/event_list.html', {'events': events, 'bookings': bookings})
 
 @staff_member_required
 def event_detail(request, event_id):
@@ -87,14 +89,14 @@ def register_event(request, event_id):
 
 # USER ACCESS VIEWS
 
-@login_required
+
 def event_book(request):
     current_date = timezone.now().date()
     events = Event.objects.filter(is_published=True, date__gte=current_date).order_by('date')
     
     return render(request, 'event/event_book.html', {'events': events})
 
-@login_required
+
 def event_public_detail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
 
@@ -113,12 +115,16 @@ def custom_404(request, exception):
 
 # USER BOOKED EVENTS
 
+@login_required
 def booked_list(request):
     booked_events = Attendee.objects.filter(user=request.user).values_list('event', flat=True)
     events = Event.objects.filter(id__in=booked_events)
-    return render(request, 'event/booked_list.html', {'events': events})
+    bookings = Booking.objects.filter(user=request.user)
+    bookings = Booking.objects.order_by('date')
+    return render(request, 'event/booked_list.html', {'events': events, 'bookings': bookings})
 
 
+@login_required
 def book_event(request, event_id):
     if request.method == 'POST':
         event = get_object_or_404(Event, pk=event_id)
@@ -126,13 +132,16 @@ def book_event(request, event_id):
         quantity = int(request.POST.get('quantity', 1))
 
         for _ in range(quantity):
+            # Create multiple Attendee instances
             Attendee.objects.create(user=request.user, event=event)
 
+        messages.success(request, f'Successfully booked {quantity} tickets for the event.')
         return redirect('event_public_detail', event_id=event.id)
     
     return redirect('event_public_detail', event_id=event_id)
 
-# CANCELLING BOOKING
+
+# CANCELLING BOOKING FOR USER
 
 @login_required
 def perform_cancel_booking(request, event_id):
@@ -148,12 +157,12 @@ def perform_cancel_booking(request, event_id):
 
     return redirect('booked_list')
 
+# TOGGLING EVENT VISIBILITY FOR USER
 
 def toggle_event_visibility(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     
     if request.method == 'POST':
-        # Toggle the is_hidden status
         event.is_published = not event.is_published
         event.save()
 
@@ -205,3 +214,47 @@ def perform_edit_account(request):
 
 def coming_soon(request):
     return render(request, 'event/coming_soon.html')
+
+# BOOKING SPACE FOR USERS
+
+@login_required
+def booking_list(request):
+    bookings = Booking.objects.filter(user=request.user)
+    print(bookings)  # Add this line to print the bookings to the console
+    return render(request, 'event/event_list.html', {'bookings': bookings})
+
+@login_required
+def booking_request(request):
+    bookings = Booking.objects.filter(user=request.user)
+    if request.method == 'POST':
+        form = BookingForm(request.POST, request.FILES)
+        if form.is_valid():
+            booking_request = form.save(commit=False)
+            booking_request.user = request.user
+            booking_request.save()
+            return redirect('booked_list')  # Redirect to the booked_list page or any other appropriate page
+    else:
+        form = BookingForm()
+
+    return render(request, 'event/booking_form.html', {'form': form, 'bookings': bookings})
+
+@login_required
+def edit_booking(request, booking_id):
+    booking = get_object_or_404(Booking, pk=booking_id, user=request.user)
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect('booked_list')
+    else:
+        form = BookingForm(instance=booking)
+    return render(request, 'event/booking_form_edit.html', {'form': form})
+
+@login_required
+def delete_booking(request, booking_id):
+    booking = get_object_or_404(Booking, pk=booking_id, user=request.user)
+    if request.method == 'POST':
+        booking.delete()
+        return redirect('booked_list')
+    return render(request, 'event/booking_confirm_delete.html', {'booking': booking})
+

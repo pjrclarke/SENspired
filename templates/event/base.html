@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <!-- favicvon -->
     <link rel="apple-touch-icon" sizes="180x180" href='{% static "favicon/apple-touch-icon.png" %}'>
@@ -44,11 +44,21 @@
                           <i class="fas fa-home animate__animated animate__jello"></i> Home
                       </a>
                   </li>
-                      <li class="nav-item mr-4">
-                          <a class="nav-link orange" href="{% url 'event_book' %}">
-                              <i class="fas fa-book animate__animated animate__jello"></i> Book
-                          </a>
-                      </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link orange dropdown-toggle" href="#" id="bookingDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-book animate__animated animate__jello"></i> Bookings
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="bookingDropdown">
+                            <!-- Icon for booking an event -->
+                            <a class="dropdown-item" href="{% url 'event_book' %}">
+                                <i class="fas fa-calendar-alt"></i> Event Bookings
+                            </a>
+                            <!-- Icon for booking a room -->
+                            <a class="dropdown-item" href="{% url 'booking_request' %}">
+                                <i class="fas fa-bed"></i> Room Bookings
+                            </a>
+                        </div>
+                    </li>
                       <li class="nav-item mr-4">
                           <a class="nav-link yellow" href="{% url 'coming_soon' %}">
                               <i class="fas fa-images animate__animated animate__jello"></i> Gallery
@@ -69,7 +79,7 @@
                     {% if user.is_authenticated %}
                         <div class="nav-item dropdown dropleft bg-light border border-danger border-4 rounded-pill">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Hi, {{ user.username }}!
+                                Hi, {{ user.username|capfirst }}!
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="{% url 'account_overview' %}">Account Information</a>
@@ -103,45 +113,44 @@
    
     {% block content %}
     {% endblock %}
-    <footer class="bg-dark text-light py-4 mt-auto">
-          <div class="container">
-              <div class="row">
-                  <div class="col-md-4 text-center">
-                      <h5>Find Us</h5>
-                      <p>The Wilds Economy Center</p> 
-                      <p>Garden Room</p>
-                      <p>Barking Riverside</p>  
-                      <p>IG11 0AN</p>
-                  </div>
-                  <div class="col-md-4 text-center">
-                    <h5>Follow Us</h5>
-                    <div class="social-icons">
-                      <a href="https://www.facebook.com" target="_blank" class="text-light"><i class="fab fa-facebook fa-lg"></i></a>
-                      <a href="https://www.instagram.com" target="_blank" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
-                      <a href="https://www.etsy.com" target="_blank" class="text-light"><i class="fab fa-etsy fa-lg"></i></a>
-                      <a href="https://www.pinterest.com" target="_blank" class="text-light"><i class="fab fa-pinterest fa-lg"></i></a>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                    <h5 class ="text-center">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Book a Class</a></li>
-                        <li><a href="{% url 'coming_soon' %}">Book Our Space</a></li>
-                        <li><a href="{% url 'coming_soon' %}">Terms and Conditions</a></li>
-                        <li><a href="{% url 'coming_soon' %}">Privacy Policy</a></li>
-                        <li><a href="{% url 'coming_soon' %}">Cookies</a></li>
-                        <li><a href="{% url 'coming_soon' %}">Jobs</a></li>
-                    </ul>
+    <footer class="bg-transparent text-dark py-3 mt-auto">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-4 text-center mb-2">
+                  <h5 class="mb-2">Find Us</h5>
+                  <p>The Wilds Economy Center</p> 
+                  <p>Garden Room</p>
+                  <p>Barking Riverside</p>  
+                  <p>IG11 0AN</p>
+              </div>
+              <div class="col-md-4 text-center mb-2">
+                <h5 class="mb-2">Follow Us</h5>
+                <div class="social-icons text-center d-flex justify-content-between">
+                    <a href="https://www.facebook.com" target="_blank" class="text-dark"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="text-dark"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="https://www.etsy.com" target="_blank" class="text-dark"><i class="fab fa-etsy fa-lg"></i></a>
+                    <a href="https://www.pinterest.com" target="_blank" class="text-dark"><i class="fab fa-pinterest fa-lg"></i></a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <p>&copy; SENspired</p>
-                    <p>Website created and maintained by <a href="https://www.pjrclarke.com" target="_blank" class="text-light">PJRClarke</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
+              <div class="col-md-4">
+                  <h5 class="text-center" class="mb-2">Quick Links</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="#" class="text-dark">Book a Class</a></li>
+                      <li><a href="{% url 'coming_soon' %}" class="text-dark">Book Our Space</a></li>
+                      <li><a href="{% url 'coming_soon' %}" class="text-dark">Terms and Conditions</a></li>
+                      <li><a href="{% url 'coming_soon' %}" class="text-dark">Privacy Policy</a></li>
+                      <li><a href="{% url 'coming_soon' %}" class="text-dark">Cookies</a></li>
+                      <li><a href="{% url 'coming_soon' %}" class="text-dark">Jobs</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12 text-center">
+                  <p>&copy; SENspired</p>
+                  <p>Website created and maintained by <a href="https://www.pjrclarke.com" target="_blank" class="text-dark">PJRClarke</a></p>
+              </div>
+          </div>
+      </div>
   </footer>
         
 

@@ -1,76 +1,95 @@
+
+
 {% extends 'event/base.html' %}
-
+{% load static %}
 {% block content %}
+<div class="container-index">
     <div class="container mt-4">
-        <h2 class="text-center mb-4">Event Overview</h2>
-        <table class="table table-bordered mx-auto">
-            <tbody>
-              <img src="{{ event.image.url }}"></td>
-                <tr>
-                    <th>Title</th>
-                    <td>{{ event.title }}</td>
-                </tr>
-                <tr>
-                    <th>Description</th>
-                    <td>{{ event.description }}</td>
-                </tr>
-                <tr>
-                    <th>Date</th>
-                    <td>{{ event.date }}</td>
-                </tr>
-                <tr>
-                    <th>Time</th>
-                    <td>{{ event.time }}</td>
-                </tr>
-                <tr>
-                    <th>Location</th>
-                    <td>{{ event.location }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="text-center mt-4">
-            {% if user.is_authenticated %}
-                {% if user != event.organizer %}
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bookModal">
-                        Book Event
-                    </button>
-                {% endif %}
-                <a href="{% url 'event_book' %}" class="btn btn-secondary mx-2">Back</a>
-            {% else %}
-                <p>Please log in to register for this event.</p>
-            {% endif %}
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="bookModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="bookModalLabel">Book Event - {{ event.title }}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+        <h2 class="text-center mb-4">{{ event.title }}</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="img-container rounded border overflow-hidden">
+                    <img src="{% if event.image %}{{ event.image.url }}{% else %}{% static 'images/default.png' %}{% endif %}" class="img-fluid" alt="{{ event.title }}">
                 </div>
-                <div class="modal-body">
-                    <p>Date: {{ event.date }}</p>
-                    <p>Time: {{ event.time }}</p>
-                    <label for="quantity">Quantity:</label>
-                    <select class="form-control" id="quantity" name="quantity">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <form method="post" action="{% url 'book_event' event.id %}">
-                      {% csrf_token %}
-                      <button type="submit" class="btn btn-primary">Book Now</button>
-                  </form>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Description</th>
+                            <td>{{ event.description }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Date</th>
+                            <td>{{ event.date }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Time</th>
+                            <td>{{ event.time }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Max Capacity</th>
+                            <td>{{ event.max_capacity }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Location</th>
+                            <td>{{ event.location }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Published</th>
+                            <td>{% if event.is_published %}LIVE{% else %}HIDDEN{% endif %}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center mt-4">
+                  {% if user.is_authenticated %}
+                      {% if user != event.organizer %}
+                          <!-- Button trigger modal -->
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bookModal">
+                              Book Event
+                          </button>
+                      {% endif %}
+                      <a href="{% url 'event_book' %}" class="btn btn-secondary mx-2">Back</a>
+                  {% else %}
+                      <p>Please <a href="{% url 'account_login' %}">log in</a> to register for this event.</p>
+                  {% endif %}
               </div>
             </div>
         </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="bookModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="bookModalLabel">Register for Event - {{ event.title }}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <p>Date: {{ event.date }}</p>
+              <p>Time: {{ event.time }}</p>
+              <form method="post" action="{% url 'book_event' event.id %}">
+                {% csrf_token %}
+                <label for="quantity">Quantity:</label>
+                <select id="quantity" name="quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+              </select>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <form method="post" action="{% url 'book_event' event.id %}">
+                  {% csrf_token %}
+                  <!-- Display information about each attendee -->
+                  <button type="submit" class="btn btn-primary">Register Now</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
 {% endblock %}

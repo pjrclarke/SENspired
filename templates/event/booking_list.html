@@ -1,0 +1,19 @@
+{% extends 'event/base.html' %}
+{% load static %}
+
+{% block content %}
+  
+<div class="container-index">
+<h2>Your Bookings</h2>
+  {% if bookings %}
+    <ul>
+      {% for booking in bookings %}
+        <li>{{ booking.event_name }} - {{ booking.date }} - {{ booking.start_time }} to {{ booking.end_time }} <a href="{% url 'edit_booking' booking.id %}">Edit</a> <a href="{% url 'delete_booking' booking.id %}">Delete</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No bookings found.</p>
+  {% endif %}
+  <a href="{% url 'create_booking' %}">Create Booking</a>
+</div>
+{% endblock %}

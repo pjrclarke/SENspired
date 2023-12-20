@@ -2,11 +2,8 @@
 {% load static %}
 
 {% block content %}
-    <div class="container mt-4">
-        {% for message in messages %}
-    <div class="alert alert-{{ message.tags }}">{{ message }}</div> 
-        {% endfor %}            
-        <h2 class="text-center mb-4">Booked Events</h2>
+    <div class="container-index">           
+        <h2 class="text-center text-light mb-4">Booked Events</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for event in events %}
                 <div class="col">
@@ -59,5 +56,52 @@
             {% endfor %}
         </div>
     </div>
+
+        
+        <div class="container-fluid container-index mt-5 mb-5">
+            <h2 class="text-center text-light my-4">Booking Requests</h2>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <!-- Add a button or link for staff to approve requests -->
+            </div>
+            <table class="table text-center text-light table-borderless">
+                <!-- Table Header for Booking Requests -->
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <!-- Table Body for Booking Requests -->
+                <tbody>
+                    {% for booking in bookings %}
+
+                        <tr>
+                            <td>{{ booking.event_name }}</td>
+                            <td>{{ booking.date }}</td>
+                            <td>
+                                {% if booking.status == 'waiting' %}
+                                    <span class="badge badge-warning">Waiting</span>
+                                {% elif booking.status == 'approved' %}
+                                    <span class="badge badge-success">Approved</span>
+                                {% elif booking.status == 'denied' %}
+                                    <span class="badge badge-danger">Denied</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="3" class="text-center">No booking requests found.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
 
 {% endblock %}

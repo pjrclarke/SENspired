@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import event_list, event_detail, create_event, register_event, event_edit, event_delete, event_book, home, event_public_detail, booked_list, book_event, perform_cancel_booking, account_overview, account_edit, perform_edit_account, coming_soon, toggle_event_visibility
+from .views import event_list, event_detail, create_event, register_event, event_edit, event_delete, event_book, home, event_public_detail, booked_list, book_event, perform_cancel_booking, account_overview, account_edit, perform_edit_account, coming_soon, toggle_event_visibility, booking_list, edit_booking, delete_booking, booking_request, approve_booking, reject_booking
 
 urlpatterns = [
     path('', home, name='home'),
@@ -20,6 +20,10 @@ urlpatterns = [
     path('perform_edit_account/', perform_edit_account, name='perform_edit_account'),
     path('coming_soon/', coming_soon, name='coming_soon'),
     path('toggle_event_visibility/<int:event_id>/', toggle_event_visibility, name='toggle_event_visibility'),
-
-
+    path('events/booking_list/',booking_list, name='booking_list'),
+    path('events/edit_booking/', edit_booking, name='edit_booking'),
+    path('events/delete_booking/', delete_booking, name='delete_booking'),
+    path('events/booking_request/', booking_request, name='booking_request'),
+    path('approve_booking/<int:booking_id>/', approve_booking, name='approve_booking'),
+    path('reject_booking/<int:booking_id>/', reject_booking, name='reject_booking'),
 ]

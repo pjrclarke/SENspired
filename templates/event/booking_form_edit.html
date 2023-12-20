@@ -1,0 +1,33 @@
+{% extends 'event/base.html' %}
+
+{% block content %}
+<div class="container-index text-center">
+    <h2>Book our space!</h2>
+    <table class="table table-borderless mx-auto" style="max-width: 500px;">
+      <tbody>
+        <tr>
+          <td class="text-right"><label for="{{ form.event_name.id_for_label }}">Event Name:</label></td>
+          <td>{{ form.event_name }}</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="{{ form.date.id_for_label }}">Date:</label></td>
+          <td>{{ form.date }}</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="{{ form.start_time.id_for_label }}">Start Time:</label></td>
+          <td>{{ form.start_time }}</td>
+        </tr>
+        <tr>
+          <td class="text-right"><label for="{{ form.end_time.id_for_label }}">End Time:</label></td>
+          <td>{{ form.end_time }}</td>
+        </tr>
+        <!-- Add other form fields as needed -->
+      </tbody>
+    </table>
+    <form method="post" action="" class="mt-4">
+      {% csrf_token %}
+      {{ form.media }}
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+{% endblock %}
