@@ -222,3 +222,17 @@ p {
     font-family: 'Finger Paint', sans-serif;
     color: #000;
 }
+
+@media (max-width: 767px) {
+    .navbar-brand {
+      display: none;
+    }
+  
+    .navbar-nav {
+      margin-top: 40px;
+    }
+  
+    .navbar-collapse {
+      z-index: 9999;
+    }
+  }
