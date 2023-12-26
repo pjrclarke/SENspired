@@ -2,11 +2,9 @@
 {% load static %}
 
 {% block content %}
-<div class="container-index">
-    <h2 class="text-center">New Event</h2>
-
-    <div class="row justify-content-center container-index">
-        <div class="col-md-8">
+ <div class="row justify-content-center container-index">
+        <div class="col-md-10">
+            <h2 class="text-center">New Event</h2>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <table class="table table-borderless">
@@ -34,7 +32,7 @@
             </form>
         </div>
     </div>
-</div>
+
 {% endblock  %}
 
  

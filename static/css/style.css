@@ -218,3 +218,7 @@ p {
         transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
     }
 }
+.login-signup {
+    font-family: 'Finger Paint', sans-serif;
+    color: #000;
+}

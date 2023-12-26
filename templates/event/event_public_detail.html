@@ -74,19 +74,13 @@
               <p>Time: {{ event.time }}</p>
               <form method="post" action="{% url 'book_event' event.id %}">
                 {% csrf_token %}
-                <label for="quantity">Quantity:</label>
-                <select id="quantity" name="quantity">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-              </select>
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <form method="post" action="{% url 'book_event' event.id %}">
                   {% csrf_token %}
                   <!-- Display information about each attendee -->
-                  <button type="submit" class="btn btn-primary">Register Now</button>
+                  <button type="submit" class="btn btn-primary" onclick="showThankYou()">Register Now</button>
               </form>
           </div>
       </div>

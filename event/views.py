@@ -13,8 +13,7 @@ from django.utils import timezone
 
 @staff_member_required
 def event_list(request):
-    events = Event.objects.all()
-    events = Event.objects.order_by(
+    events = Event.objects.all().order_by(
         Case(
             When(is_published=True, then=Value(0)),
             default=Value(1),
@@ -22,7 +21,10 @@ def event_list(request):
         ),
         'date'
     )
-    bookings = Booking.objects.all()
+
+    # Filter out rejected bookings
+    bookings = Booking.objects.exclude(status='rejected')
+
     return render(request, 'event/event_list.html', {'events': events, 'bookings': bookings})
 
 @staff_member_required
@@ -119,8 +121,7 @@ def custom_404(request, exception):
 def booked_list(request):
     booked_events = Attendee.objects.filter(user=request.user).values_list('event', flat=True)
     events = Event.objects.filter(id__in=booked_events)
-    bookings = Booking.objects.filter(user=request.user)
-    bookings = Booking.objects.order_by('date')
+    bookings = Booking.objects.filter(user=request.user).order_by('date')
     return render(request, 'event/booked_list.html', {'events': events, 'bookings': bookings})
 
 
@@ -143,21 +144,52 @@ def book_event(request, event_id):
 
 # CANCELLING BOOKING FOR USER
 
+# @login_required
+# def delete_booking(request, event_id):
+#     # Get the event instance
+#     event = get_object_or_404(Attendee, user=request.user, pk=event_id)
+
+#     # Get the booking instance for the authenticated user and the specified event
+#     booking = Attendee.objects.filter(user=request.user, pk=event_id).first()
+
+#     if booking:
+#         if request.method == 'POST':
+#             # Delete both the booking and the event
+#             booking.delete()
+#             event.delete()
+#             return redirect('booked_list')
+#     else:
+#         # Handle the case where the booking is not found
+#         messages.error(request, 'Booking not found.')
+
+#     return render(request, 'event/booking_confirm_delete.html', {'booking': booking, 'event': event})
+
 @login_required
-def perform_cancel_booking(request, event_id):
-    event = get_object_or_404(Event, pk=event_id)
-
-    booking = Attendee.objects.filter(user=request.user, event=event).first()
-
-    if booking:
+def delete_booking(request, booking_id):
+    booking = Booking.objects.filter(id=booking_id)
+    if request.method == 'GET':
         booking.delete()
-        messages.success(request, 'Booking cancelled successfully.')
-    else:
-        messages.error(request, 'Booking not found.')
+        return redirect('booked_list')
+    return render(request, 'event/booking_confirm_delete.html', {'booking': booking})
 
-    return redirect('booked_list')
+
+@login_required
+def cancel_event(request, event_id):
+    event = Event.objects.filter(id=event_id)
+    if request.method == 'GET':
+        event.delete()
+        return redirect('booked_list')
+    return render(request, 'event/booking_confirm_delete.html', {'event': event})
+
 
 # TOGGLING EVENT VISIBILITY FOR USER
+
+# @login_required
+# def delete_booking(request, event_id):
+#     booking = Attendee.objects.filter(user=request.user, pk=event_id).first()
+    
+#     print(booking)
+
 
 def toggle_event_visibility(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
@@ -232,7 +264,7 @@ def booking_request(request):
             booking_request = form.save(commit=False)
             booking_request.user = request.user
             booking_request.save()
-            return redirect('booked_list')  # Redirect to the booked_list page or any other appropriate page
+            return redirect('booked_list') 
     else:
         form = BookingForm()
 
@@ -250,11 +282,28 @@ def edit_booking(request, booking_id):
         form = BookingForm(instance=booking)
     return render(request, 'event/booking_form_edit.html', {'form': form})
 
-@login_required
-def delete_booking(request, booking_id):
-    booking = get_object_or_404(Booking, pk=booking_id, user=request.user)
-    if request.method == 'POST':
-        booking.delete()
-        return redirect('booked_list')
-    return render(request, 'event/booking_confirm_delete.html', {'booking': booking})
 
+
+@staff_member_required
+@login_required
+def approve_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+
+    # Add logic to update the booking status to 'approved'
+    booking.status = 'approved'
+    booking.save()
+
+    # Redirect back to the booking list or any other appropriate page
+    return redirect('event_list')
+
+@staff_member_required
+@login_required
+def reject_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+
+    # Add logic to update the booking status to 'rejected'
+    booking.status = 'rejected'
+    booking.save()
+
+    # Redirect back to the booking list or any other appropriate page
+    return redirect('booked_list')

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import event_list, event_detail, create_event, register_event, event_edit, event_delete, event_book, home, event_public_detail, booked_list, book_event, perform_cancel_booking, account_overview, account_edit, perform_edit_account, coming_soon, toggle_event_visibility, booking_list, edit_booking, delete_booking, booking_request, approve_booking, reject_booking
+from .views import *
 
 urlpatterns = [
     path('', home, name='home'),
@@ -14,15 +14,16 @@ urlpatterns = [
     path('events/booked_list', booked_list, name='booked_list'),
     path('events/detail/<int:event_id>', event_public_detail, name='event_public_detail'),
     path('events/<int:event_id>/book/', book_event, name='book_event'),
-    path('events/<int:event_id>/cancel_booking/', perform_cancel_booking, name='perform_cancel_booking'),
     path('events/account_overview/', account_overview, name='account_overview'),
     path('events/account_edit/', account_edit, name='account_edit'),
     path('perform_edit_account/', perform_edit_account, name='perform_edit_account'),
     path('coming_soon/', coming_soon, name='coming_soon'),
     path('toggle_event_visibility/<int:event_id>/', toggle_event_visibility, name='toggle_event_visibility'),
     path('events/booking_list/',booking_list, name='booking_list'),
-    path('events/edit_booking/', edit_booking, name='edit_booking'),
-    path('events/delete_booking/', delete_booking, name='delete_booking'),
+    path('events/edit_booking/<int:booking_id>/', edit_booking, name='edit_booking'),
+    path('events/delete_event/<int:event_id>/', delete_booking, name='delete_event'),
+    path('events/delete_booking/<int:booking_id>/', delete_booking, name='delete_booking'),
+    path('events/cancel_event/<int:event_id>/', cancel_event, name='cancel_event'),
     path('events/booking_request/', booking_request, name='booking_request'),
     path('approve_booking/<int:booking_id>/', approve_booking, name='approve_booking'),
     path('reject_booking/<int:booking_id>/', reject_booking, name='reject_booking'),

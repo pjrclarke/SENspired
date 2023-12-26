@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="background index-page">
-    <img src="{% static 'images/hero.png' %}" class="img-fluid" alt="Hero Image">
+    <img src="{% static 'images/main.png' %}" class="img-fluid" alt="Hero Image">
 </div>
 <div class="container container-index2 text-center">
     <div class="row justify-content-center">
@@ -18,16 +18,26 @@
                 <a href="{% url 'coming_soon' %}" class="btn btn-primary">Contact Us</a>
             </div>
 
-            <div class="row mt-4">
-                <div class="col-md-4">
-                    <img src="{% static 'images/messy_play.jpg' %}" alt="Image 1" class="rounded-child-friendly img-fluid border-colored1">
+            <div id="imageCarousel" class="carousel slide carousel-fade text-center" data-ride="carousel">
+                <div class="carousel-inner text-center">
+                    <div class="carousel-item active d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/messy_play.jpg' %}" alt="Image 1" class="d-block w-100 rounded-child-friendly img-fluid border-colored1" style="max-width: 40%; height: auto;">
+                    </div>
+                    <div class="carousel-item d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/mums_group.jpg' %}" alt="Image 2" class="d-block w-100 rounded-child-friendly img-fluid border-colored2" style="max-width: 40%; height: auto;">
+                    </div>
+                    <div class="carousel-item d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/storytelling.jpg' %}" alt="Image 3" class="d-block w-100 rounded-child-friendly img-fluid border-colored3" style="max-width: 40%; height: auto;">
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <img src="{% static 'images/mums_group.jpg' %}" alt="Image 2" class="rounded-child-friendly img-fluid border-colored2">
-                </div>
-                <div class="col-md-4">
-                    <img src="{% static 'images/storytelling.jpg' %}" alt="Image 3" class="rounded-child-friendly img-fluid border-colored3">
-                </div>
+                <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
     </div>
