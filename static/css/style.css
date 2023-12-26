@@ -139,6 +139,15 @@ body.fade-in {
     z-index: 2;
 }
 
+.container-index3 {
+    margin-top: -150px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(rgba(7, 151, 152, 0.7), rgba(102, 0, 205, 0.7));
+    z-index: 2;
+}
+
 .logo_index {
     width: 150px; 
     margin-bottom: 10px;
@@ -224,15 +233,28 @@ p {
 }
 
 @media (max-width: 767px) {
+    /* Hide the logo on smaller screens */
     .navbar-brand {
       display: none;
     }
   
-    .navbar-nav {
-      margin-top: 40px;
+    /* Adjust the position of the navbar to push content down */
+    .navbar {
+      position: relative;
     }
   
+    /* Increase the z-index of the dropdown menu */
     .navbar-collapse {
       z-index: 9999;
+      position: absolute;
+      top: 100%; /* Adjust the distance from the navbar */
+      left: 0;
+      width: 100%;
     }
+
+    
+.container-index3 {
+    margin-top: 0;
+    
+}
   }
