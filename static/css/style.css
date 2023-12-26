@@ -58,7 +58,6 @@ body.fade-in {
     background-color: rgb(255, 255, 255, 0); 
     position: absolute;
     width: 100%;
-    top: 20px;
     z-index: 1;
 }
 
@@ -241,7 +240,10 @@ p {
     /* Adjust the position of the navbar to push content down */
     .navbar {
       position: relative;
+      
     }
+
+    
   
     /* Increase the z-index of the dropdown menu */
     .navbar-collapse {
@@ -250,11 +252,13 @@ p {
       top: 100%; /* Adjust the distance from the navbar */
       left: 0;
       width: 100%;
+      background: linear-gradient(to bottom, white 99%, transparent 100%);
+
     }
 
     
-.container-index3 {
-    margin-top: 0;
+    .container-index3 {
+        margin-top: 0;
     
 }
   }
