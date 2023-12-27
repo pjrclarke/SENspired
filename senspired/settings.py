@@ -187,3 +187,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For developm
 # EMAIL_USE_TLS = True
 # EMAIL_HOST_USER = 'your-smtp-username'
 # EMAIL_HOST_PASSWORD = 'your-smtp-password'
+
+
