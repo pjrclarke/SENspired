@@ -1,0 +1,8 @@
+SENspired, my latest web development endeavour, embodies the principles of Agile methodologies, fostering a dynamic and collaborative relationship with a real client. Our weekly meetings served as a platform for transparent communication and feedback, allowing for constant iteration and refinement of the website's features. Notably, the site boasts a robust event management system, providing administrators with a user-friendly interface to effortlessly create, modify, and remove events. This functionality ensures a streamlined and efficient booking process for the public, aligning perfectly with SENspired's mission.
+
+Moreover, I have implemented a sophisticated system empowering users to manage booking requests for the organisation's rented rooms. This comprehensive solution enables individuals to seamlessly create, read, update, and delete their booking requests, enhancing the overall user experience. The design of the platform goes beyond functionality, incorporating a stylish aesthetic that reflects the organisation's ethos.
+
+While the website's current iteration showcases the initial CRUD (Create, Read, Update, Delete) functionality for both administrators and users, it represents just the tip of the iceberg. The project's expansive scope necessitates a phased approach, and this initial release serves as a preview of the site's potential. As I continue to work on expanding its capabilities, I am excited about the positive impact SENspired will have on its users and the community it serves. The journey is ongoing, and I look forward to bringing even more innovative features and enhancements to the site in the future.
+
+Please access the website through this link: [SENspired](https://senspired-efbab7dd64be.herokuapp.com/)
+
