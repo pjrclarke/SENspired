@@ -16,7 +16,9 @@ body {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
-
+body.fade-in {
+    opacity: 1;
+}
 /* ------------------------- BASE.HTML ------------------------- */
 
 .background {
@@ -125,7 +127,7 @@ body {
 
 
 .container-index {
-    margin-top: 20px;
+    margin-top: 150px;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
