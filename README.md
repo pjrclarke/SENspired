@@ -32,24 +32,33 @@ Please access the website through this link: [SENspired](https://senspired-efbab
     - [Frequent Visitor](#frequent-visitor)
 - [User Experience (UX) Site owner](#user-experience-ux-site-owner)
   - [User Stories](#user-stories)
+- [Project Management](#project-management)
+- [First Client Meeting](#first-client-meeting)
+    - [User Access / Admin Access](#user-access--admin-access)
+    - [Current web design](#current-web-design)
+    - [Next Steps](#next-steps)
+- [Creative Process](#creative-process)
+    - [Logo Design](#logo-design)
+        - [Current Logo](#current-logo)
+        - [New logo Designs](#new-logo-designs)
+- [Design Prototype](#design-prototype)
+    - [Wireframes](#wireframes)
+        - [Desktop](#desktop)
+        - [Mobile](#mobile)
+- [Second Client Meeting](#second-client-meeting)
+    - [Design Choices](#design-choices)
+        - [Typography](#typography)
+        - [Color Scheme](#color-scheme)
+    - [Database Schema (ERD)](#database-schema-erd)
+        - [Models](#models)
+- [Third Client Meeting](#third-client-meeting)
+- [Site Structure](#site-structure)
 
 
-- [Creation Process](#creation-process)
-  - [Design Prototype (Wireframes)](#design-prototype-wireframes)
-    - [Desktop Wireframes](#desktop-wireframes)
-    - [Tablet Wireframes](#tablet-wireframes)
-    - [Mobile Wireframes](#mobile-wireframes)
-  - [Project Management](#project-management)
-    - [GitHub Projects Board](#github-projects-board)
-    - [Milestones](#milestones)
-    - [Epics](#epics)
-    - [User Stories](#user-stories-1)
-  - [Database Schema (ERD)](#database-schema-erd)
-  - [Site Structure](#site-structure)
-- [Design Choices](#design-choices)
-  - [Typography](#typography)
-  - [Color Scheme](#color-scheme)
-- [Features](#features)
+    -  [Features](#features)
+
+
+
   - [Site Responsive Navigation Bar](#site-responsive-navigation-bar)
   - [Carousel](#carousel)
   - [Footer](#footer)
@@ -203,5 +212,422 @@ The site's primary goal for users is to effortlessly stay informed about SENspir
 - As a **signed-in site owner** via the **admin panel**, I can **approve requests made by general users for room bookings**.
 - As a **signed-in site owner** via the **admin panel**, I can **delete requests made by general users for room bookings**.
 
+
+[Back to top](#contents)
+
+
+# Project Management
+
+I challenged myself to complete this project within a timeframe of four weeks. To effectively manage the project, I employed a combination of strategic tools.
+
+Firstly, I established a routine of weekly meetings with the client, fostering regular communication and alignment on project goals.
+
+Secondly, I implemented a goal-oriented approach by setting clear objectives for each week, directly derived from the outcomes of our client meetings. This provided a structured framework for progressing through the project.
+
+For task management, I opted for Apple's To-Do list, finding it to be a user-friendly and efficient tool. This choice was made in lieu of Github's project board, as my dynamic work style and frequent engagement in meetings were better accommodated by the To-Do list.
+
+This multi-faceted approach allowed for seamless communication with the client, systematic goal achievement, and efficient task management throughout the project timeline.
+
+[Back to top](#contents)
+
+# First Client Meeting
+
+In the first client meeting, our focus was on defining the desired outcomes and scoping the project for the website. We delved into a comprehensive discussion covering various aspects, including User Access, Admin Access, feature requirements, considerations for safeguarding and cookies, an in-depth analysis of the existing website – highlighting its strengths and weaknesses, and a meticulous review of all images and the current logo. This holistic exploration set the foundation for a purposeful and well-informed project trajectory.
+
+
+### User Access / Admin Access
+
+Regarding access, the client expressed a clear vision for a robust admin side, necessitating the creation of an indispensable admin panel. This tool was deemed essential for seamless event management, allowing the admin to not only create events but also control their visibility – deciding whether to keep them hidden or make them live based on the desired timing for public access.
+
+Additionally, catering to basic user access was a key requirement. This functionality empowers users to view their booked events while concurrently offering the admin insights into the attendees for each event. This dual-layered access system was designed to provide a comprehensive and user-friendly experience for both administrators and regular users.
+
+
+## Current web design
+
+
+During our evaluation of the current website, we identified notable strengths and areas for improvement.
+
+Positive Aspects (Good):
+
+- Ease of Accessibility: The existing website excelled in providing easily accessible information.
+- Visual Appeal: The vibrant and colourful design contributed to an engaging user experience.
+- User Guidance: The directions on the site were reasonably easy to recognize, enhancing user navigation.
+
+Areas for Improvement (Bad):
+
+- Colour Palette: Identified issues with the colour palette, indicating room for enhancement.
+- Logo Absence: The absence of a logo was noted as a shortcoming.
+- Visual Appeal: Described as bland, the website lacked visual dynamism.
+- Clarity of Purpose: The site struggled to effectively communicate and detail SENspired's services and offerings.
+- Page Loading Time: Slow loading times were observed, indicating a need for optimization.
+- Booking Information: The booking confirmation lacked crucial details such as time and date.
+- Class Session Limitation: Users expressed a desire for the ability to add more classes or sessions during the booking process.
+
+Considering these insights, the vision for the future website encompasses enhancements in design aesthetics, optimization for faster performance, and the incorporation of additional features to meet user expectations.
+
+<details><summary><b>Current Home Page</b></summary>
+
+![Current Home Page](/media/readmeimages/currentmain.png)
+</details><br />
+
+### Next Steps
+
+- **Create new logo designs**
+- **Create different wireframes of different designs**
+
+<br>
+<br>
+
+[Back to top](#contents)
+
+# Creative Process
+
+Below, I'll showcase the evolution of the index page prototypes, illustrating the iterative journey of its development. Explore the visual transformations that have unfolded over time, providing insights into the thoughtful enhancements and refinements made to craft an engaging and user-friendly landing experience.
+
+## Logo Design
+
+### Current Logo
+
+The existing SENspired logo falls short in effectively communicating the organization's activities. The motivation behind redesigning the logo is not only to accurately depict the essence of what SENspired does but also to craft a visually engaging and playful design that can serve as a powerful branding element. The redesign aims to encapsulate the spirit of SENspired while creating a distinctive and memorable visual identity.
+
+<details><summary><b>Current Logo</b></summary>
+
+![Current Logo](/media/readmeimages/New-Logo-jpg-1.png)
+</details>
+
+### New Logo Designs
+
+In this opening segment, we'll display a variety of logo options, exploring different styles and colors, drawing inspiration from the current logo.
+
+<details><summary><b>New logos inspired by the current logo</b></summary>
+
+![Similar 1](media/readmeimages/similar1.jpg) 
+![Similar 2](media/readmeimages/similar2.jpg)
+![Similar 3](media/readmeimages/similar3.jpg) 
+![Similar 4](media/readmeimages/similar4.jpg) 
+![Similar 5](media/readmeimages/similar5.jpg) 
+![Similar 6](media/readmeimages/similar6.jpg) 
+![Similar 7](media/readmeimages/similar7.jpg) 
+![Similar 8](media/readmeimages/similar8.jpg) 
+![Similar 9](media/readmeimages/similar9.jpg) 
+![Similar 10](media/readmeimages/similar10.jpg) 
+![Similar 11](media/readmeimages/similar11.jpg) 
+![Similar 12](media/readmeimages/similar12.jpg) 
+![Similar 13](media/readmeimages/similar13.jpg) 
+![Similar 14](media/readmeimages/similar14.jpg) 
+![Similar 15](media/readmeimages/similar15.jpg) 
+![Similar 16](media/readmeimages/similar16.jpg) 
+![Similar 17](media/readmeimages/similar17.jpg) 
+![Similar 18](media/readmeimages/similar18.jpg) 
+![Similar 19](media/readmeimages/similar19.jpg) 
+![Similar 20](media/readmeimages/similar20.jpg)
+
+</details><br />
+
+The following represent comprehensive redesigns of the logo, infused with a depiction of SENspired's activities and the potential for a fresh branding approach.
+
+<details><summary><b>Redesigned logos</b></summary>
+
+![redesign 1](media/readmeimages/redesign1.png) ![redesign 2](media/readmeimages/redesign2.png) ![redesign 3](media/readmeimages/redesign3.png) ![redesign 4](media/readmeimages/redesign4.png) ![redesign 5](media/readmeimages/redesign5.png) ![redesign 6](media/readmeimages/redesign6.png) ![redesign 7](media/readmeimages/redesign7.png)
+
+
+</details><br />
+
+[Back to top](#contents)
+
+## Design Prototype
+
+### Inspiration
+
+The following websites served as the foundational inspiration for the creation of the initial wireframes. They played a key role in shaping the design direction and layout for this project.
+
+<details><summary><b>Websites for Inspiration</b></summary>
+<br>
+
+[Messy Monkeys](https://messy-monkeys.com/messy-play/)
+<br>
+
+[Little Learners](https://littlelearnersuk.com/)
+<br>
+
+[Mucky Mitts](https://www.muckymitts.co.uk/)
+<br>
+
+[Messy Pods](https://www.messypods.co.uk/)
+<br>
+
+[Bablands](https://bablands.com/tag/messy-play/)
+<br>
+
+[Sensory Land](https://www.sensoryland.com/messy-play-activity-classes)
+<br>
+
+[Thimble and Twig](https://thimbleandtwig.com/mark-making-and-messy-play-with-little-learners/)
+<br>
+
+[Little Rainbows](https://www.littlerainbowsbabysensory.co.uk/)
+<br>
+
+</details><br />
+
+[Back to top](#contents)
+
+## Wireframes
+
+The wireframes presented below were meticulously crafted using [Balsamiq Wireframes](https://balsamiq.com/). In these designs, I aimed to capture the essence of "messy play" while simultaneously providing users with an immediate understanding of SENspired's mission and offerings at first glance.
+
+### Desktop
+
+<details><summary><b>Desktop Wireframes</b></summary>
+
+![Alt text](media/readmeimages/wireframe1.png) ![Alt text](media/readmeimages/wireframe2.png)</details>
+
+### Mobile
+
+<details><summary><b>Mobile Wireframes</b></summary>
+
+![Alt text](media/readmeimages/mobile.png)
+</details><br>
+
+# Second Client Meeting
+
+
+In the second meeting, I presented the client with the newly designed logos and wireframes, showcasing the considerable effort invested in the redesign. Despite the initial setback of the client choosing to retain the current logo, the meeting marked a notable step forward in the project's progression.
+
+We collaboratively reviewed the wireframes and successfully identified a preferred design to move forward with, signifying a positive outcome.
+
+Following a brief discussion on the next steps, I communicated my plan to commence backend development, preparing the groundwork for the subsequent frontend tasks. The outlined next steps include:
+
+- Sort design choices for the site including; Typography and colour schemes.
+- Setting up Django as the backend framework.
+- Installing necessary additions, including all.auth for authentication and cloudinary for media management.
+- Creating a database through ElephantSQL.
+- Setting up the initial models, views, and URLs to establish the foundational structure for the backend.
+
+These steps mark the initiation of the technical implementation phase, laying the foundation for the frontend development and bringing us closer to the realization of the project goals.
+
+****We also decided that for the purposes of this project, I would work on two aspects of CRUD (create, read, update and delete). One for the general user and one for the Admin.****
+
+## Design Choices
+
+The selection of design elements, notably the color scheme and typography, serves as a pivotal cornerstone in sculpting the visual identity and user experience of any website or application. These choices not only contribute to the aesthetic appeal but also wield the power to evoke specific emotions, establish brand recognition, and guide users seamlessly through their digital journey. In the realm of SENspired, every design decision has been meticulously considered to ensure a harmonious blend of visual allure and functional excellence, fostering an inclusive and engaging platform for its diverse audience. Let's delve into the rationale behind these carefully crafted design choices.
+
+### Typography
+
+**Typeface Selection:**
+<br>
+The choice of typeface contributes significantly to the overall tone and readability of the content.
+
+**Font Sizes and Styles:**
+<br>
+Font sizes are optimized for easy readability, with distinct styles (e.g., bold, italics) used sparingly to emphasise important information. This approach ensures a pleasant reading experience for users across different devices.
+
+**Consistency:**
+<br>
+Maintaining consistency in typography across the website fosters a cohesive and polished look. Consistent font sizes, line heights, and spacing contribute to a visually harmonious design.
+
+**Responsiveness:**
+<br>
+Typography is designed to be responsive, adapting gracefully to different screen sizes and resolutions. This ensures a seamless reading experience for users on desktops, tablets, and mobile devices.
+
+The following choices were the shortlisted options;
+
+<details><summary><b>Typography options</b></summary>
+
+[Title](README.md) ![Alt text](<media/readmeimages/typograghy (1).png>) ![Alt text](<media/readmeimages/typograghy (2).png>) ![Alt text](<media/readmeimages/typograghy (3).png>) ![Alt text](<media/readmeimages/typograghy (4).png>)</details>
+
+The chosen typeface balances readability with a touch of whimsy, enhancing the overall friendliness and accessibility of the site. The soft approach in design is not just an aesthetic choice but a deliberate effort to create an environment where children and their families feel welcomed and at ease while exploring the diverse activities offered by SENspired.
+
+## Colour Scheme
+
+**Rationale:**
+<br>
+Selecting an appropriate color scheme is essential for conveying the right emotions and brand identity. In the case of SENspired, the color scheme was chosen with careful consideration.
+
+**Primary Colors:**
+<br>
+The chosen primary colors aim to evoke a sense of vibrancy and energy, aligning with the lively and engaging nature of the activities and services provided by SENspired.
+
+**Accent Colors:**
+<br>
+Accent colors are strategically used to highlight important elements, creating a visual hierarchy and guiding users' attention to key areas such as calls-to-action and essential information.
+
+**Accessibility:**
+<br>
+Ensuring accessibility is a priority, with attention given to color contrast to accommodate users with varying visual abilities. This aligns with the inclusive values of SENspired.
+
+With that in mind, the following colours were chosen for the scheme;
+
+<details><summary><b>Colour Scheme Options</b></summary>
+
+![Alt text](<media/readmeimages/colourscheme1 (1).png>) ![Alt text](<media/readmeimages/colourscheme1 (2).png>) ![Alt text](<media/readmeimages/colourscheme1 (3).png>) ![Alt text](<media/readmeimages/colourscheme1 (4).png>) ![Alt text](<media/readmeimages/colourscheme1 (5).png>)
+</details><br>
+
+
+Opting for a pastel color scheme was a deliberate choice aimed at infusing the SENspired platform with a soft and approachable ambiance. Pastel colors, known for their muted tones and gentle hues, exude a calming and nurturing atmosphere. These colors not only contribute to the visual appeal of the site but also align seamlessly with the nature of children's activities, fostering a comforting environment for both young participants and their families.
+
+The pastel palette, with its subtlety and versatility, extends beyond mere aesthetics. It plays a crucial role in creating a visually cohesive and harmonious user experience, promoting a sense of tranquility and fostering engagement. This intentional use of color reflects the commitment to providing a welcoming and inclusive space for children, where the visual elements complement the overall mission of SENspired.
+
+## Database Schema (ERD)
+
+Showcasing the Database Schema Entity-Relationship Diagram (ERD) is a crucial step in elucidating the underlying structure that supports the functionality of SENspired. Utilising [Lucid Chart](www.lucidchart.com) for the creation of the ERD ensures a clear and visually comprehensible representation of the relationships between different entities within the database.
+
+The ERD serves as a visual roadmap, delineating how various pieces of information interconnect, enabling a comprehensive understanding of the data architecture. Each entity in the schema signifies a distinct component, while the relationships elucidate how these components interact with one another, forming a cohesive system that underpins the functionality of SENspired.
+
+This graphical representation not only aids in the visualization of the database structure but also provides an insightful reference for developers and stakeholders involved in the project. The use of Lucid Chart adds an extra layer of clarity and accessibility, facilitating effective communication and collaboration throughout the development process.
+
+<details><summary><b>Database Scheme ERD Diagram</b></summary>
+
+![Alt text](media/readmeimages/datascheme.svg)
+
+</details>
+
+## Models
+
+The creation of the Entity-Relationship Diagram (ERD) schema proved indispensable for shaping the models within the SENspired app. This carefully designed schema not only illuminated intricate relationships between various apps and models but also clarified the necessary fields for each component.
+
+Navigating this ERD schema provided crucial insights into the dynamics of app interactions, guiding the definition of relationships and fields for a seamless data architecture. Subsequently, I utilised the ERD to generate a comprehensive model, incorporating all project apps, including Django's built-in models. This iterative process refined relationships and solidified the overall project structure, serving as a dynamic reference point throughout development and enhancing the understanding of the app's data landscape.
+
+In the project, I employed the following key models to facilitate various functionalities:
+
+**Event:**
+<br>
+Geared towards staff members, this model enables the creation of events. Staff members can use this model to provide details about upcoming activities and sessions.
+
+**Attendee:**
+<br>
+Catering to signed-in users, the Attendee model plays a crucial role in showcasing user attendance on the administrative side. This ensures that staff members can easily track and manage event participation.
+
+**Booking:**
+<br>
+Purpose: SENspired's dedicated space. This model serves as the backbone for users to express their interest in securing a spot for their intended activities.
+
+These models collectively contribute to the seamless functioning of SENspired, empowering staff members with event creation capabilities, enabling user attendance tracking, and facilitating the booking process for the community.
+
+# Third Client Meeting
+
+In our third meeting, I communicated my intention to develop functionalities allowing admins to create events and users to initiate room booking requests. This pivotal step aimed to enhance the platform's capabilities and offer a more comprehensive user experience.
+
+During our discussion on typography, we collectively agreed that Quicksand, coupled with the addition of the 'Finger Paint' font, would best capture the desired visual style. This selection ensured a harmonious blend of professionalism and a touch of creativity, aligning perfectly with SENspired's ethos.
+
+In response to feedback, the client expressed a preference for brighter colors within the existing range. We adjusted the color scheme to incorporate stronger tones, injecting vibrancy and energy while maintaining visual cohesion.
+
+The client's satisfaction with the progress affirmed their confidence in the project's direction, and they gave the green light to proceed. The forthcoming steps involved building the remaining components of the site, finalising the frontend design, and seamlessly linking it with the backend functionalities, marking the progression towards a fully integrated and polished SENspired platform.
+
+## Site Structure
+
+SENspired employs a dynamic structure that tailors the user experience based on the individual's logged-in status. Here's an overview of the distinctive features available to users and staff members:
+
+### Features for Logged-In User
+
+**Event Registration:**
+<br>
+
+Users can easily register for upcoming events hosted by SENspired.
+
+**Booking Requests:**
+<br>
+Individuals with accounts have the ability to create booking requests for utilizing SENspired's dedicated space.
+
+### Features for Staff Members (Logged-In as Staff)
+
+**Event Creation:**
+<br>
+Staff members enjoy the privilege of creating and managing events. This includes providing details about the event, such as its name, time, destination, and additional information.
+
+**Admin Panel Access:**
+<br>
+Staff members have exclusive access to the admin panel, offering a centralized hub for overseeing and managing various aspects of the platform.
+
+**Approval/Denial of Requests:**
+<br>
+Staff members hold the authority to review and take action on booking requests. This entails the ability to approve or deny requests, ensuring efficient management of the space.
+
+SENspired's feature-rich environment caters to both users and staff members, ensuring a tailored experience that aligns with their specific roles and needs within the platform.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Technologies Used
+## Languages
+
+- [Python](https://www.python.org/) - Used for adding functionality to the application.
+- [HTML5](https://en.wikipedia.org/wiki/HTML) - Provides the content and structure for the website.
+- [CSS3](https://en.wikipedia.org/wiki/CSS) - Provides the styling for the website.
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - Provides interactive elements of the website
+
+## Frameworks and Software
+
+- [Bootstrap](https://getbootstrap.com/) - A CSS framework that helps building solid, responsive, mobile-first sites.
+- [Django](https://www.djangoproject.com/) - An MVT framework used to create the Tennis Buddies site.
+- [Figma](https://figma.com) - Used to create wireframes.
+- [Github](https://github.com/) - Used for hosting the repository.
+- [Heroku](https://heroku.com/) - Used for deploying the application.
+- [Gitpod](https://www.gitpod.io/#get-started) - Used for developing the application.
+- [Favicon Converter](https://favicon.io/favicon-converter/) - used to create a favicon in correct format.
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - Used to test performance of site.
+- [Responsive Design Checker](https://www.responsivedesignchecker.com/) - Used for responsiveness check. 
+- [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used for debuggin and test responsiveness. 
+- [Cloudinary](https://cloudinary.com/) - A service for hosting all static files in the project.
+- [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
+- [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
+- [CI Python Linter](https://pep8ci.herokuapp.com/#) - Used for validation python code.
+- [Lucid Charts](https://lucidchart.com/) - for creating my ERD Diagram
+
+[Back to top](#contents)
+
+# Python Packages
+
+Following packages and libraries were installed and are located in requirements.txt.
+
+- annotated-types==0.6.0
+- asgiref==3.7.2
+- certifi==2023.11.17
+- cffi==1.16.0
+- chardet==5.2.0
+- charset-normalizer==3.3.2
+- cloudinary==1.36.0
+- cryptography==41.0.7
+- defusedxml==0.7.1
+- dj-database-url==0.5.0
+- dj3-cloudinary-storage==0.0.6
+- Django==4.1
+- django-allauth==0.58.2
+- django-bootstrap-datepicker-plus==5.0.4
+- django-heroku==0.3.1
+- gunicorn==21.2.0
+- idna==3.6
+- oauthlib==3.2.2
+- packaging==23.2
+- pathspec==0.11.2
+- psycopg2==2.9.9
+- pycparser==2.21
+- pydantic==2.5.2
+- pydantic_core==2.14.5
+- PyJWT==2.8.0
+- python3-openid==3.2.0
+- pytz==2023.3.post1
+- requests==2.31.0
+- requests-oauthlib==1.3.1
+- six==1.16.0
+- sqlparse==0.4.4
+- typing_extensions==4.8.0
+- tzdata==2023.3
+- urllib3==2.1.0
+- whitenoise==6.6.0
 
 [Back to top](#contents)

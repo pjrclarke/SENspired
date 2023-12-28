@@ -17,10 +17,6 @@ body {
     transition: opacity 0.5s ease-in-out;
 }
 
-body.fade-in {
-    opacity: 1;
-}
-
 /* ------------------------- BASE.HTML ------------------------- */
 
 .background {
@@ -124,9 +120,6 @@ body.fade-in {
     animation-name: jello-home;
 }
 
-.navbar-nav .account-info .dropdown-toggle::after {
-    content: none !important; /* Hide the caret */
-}
 
 /* ------------------------- INDEX.HTML ------------------------- */
 
@@ -148,9 +141,7 @@ body.fade-in {
     background: linear-gradient(rgba(7, 151, 152, 0.7), rgba(102, 0, 205, 0.7));
     z-index: 2;
 }
-.container-fluid{
-    margin-top: 100px;
-}
+
 .container-index3 {
     margin-top: -150px;
     padding: 20px;
@@ -307,4 +298,37 @@ p {
         object-fit: cover;
     }
 
+}
+
+/* 404 page */
+
+.error-container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.error-code {
+    font-size: 120px;
+    font-weight: bold;
+    color: #e44d26;
+}
+
+.error-message {
+    font-size: 24px;
+    margin-top: 10px;
+    color: #343a40;
+}
+
+.home-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e44d26;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
 }
