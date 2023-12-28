@@ -396,8 +396,9 @@ In the second meeting, I presented the client with the newly designed logos and 
 
 We collaboratively reviewed the wireframes and successfully identified a preferred design to move forward with, signifying a positive outcome.
 
-Following a brief discussion on the next steps, I communicated my plan to commence backend development, preparing the groundwork for the subsequent frontend tasks. The outlined next steps include:
+Following a brief discussion on the next steps, I communicated my plan to commence backend development, preparing the groundwork for the subsequent frontend tasks. 
 
+### Next Steps
 - Sort design choices for the site including; Typography and colour schemes.
 - Setting up Django as the backend framework.
 - Installing necessary additions, including all.auth for authentication and cloudinary for media management.
@@ -406,7 +407,7 @@ Following a brief discussion on the next steps, I communicated my plan to commen
 
 These steps mark the initiation of the technical implementation phase, laying the foundation for the frontend development and bringing us closer to the realization of the project goals.
 
-****We also decided that for the purposes of this project, I would work on two aspects of CRUD (create, read, update and delete). One for the general user and one for the Admin.****
+** **We also decided that for the purposes of this project, I would work on two aspects of CRUD (create, read, update and delete). One for the general user and one for the Admin.** **
 
 ## Design Choices
 
@@ -631,3 +632,8 @@ Following packages and libraries were installed and are located in requirements.
 - whitenoise==6.6.0
 
 [Back to top](#contents)
+
+# Acknowledgements
+
+- Acknowledgments to **Lucia Ferencik** are extended with gratitude for providing a valuable framework that served as a guiding inspiration in structuring my own readme. Their contribution has been instrumental in shaping the organisation and clarity of my project documentation.
+See their amazing work [here](https://github.com/lucia2007/tennis_buddies/blob/main/README.md?plain=1).
