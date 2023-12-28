@@ -97,11 +97,13 @@ Please access the website through this link: [SENspired](https://senspired-efbab
     - [Future Features Sign in functionality](#future-features-sign-in-functionality)
   - [403, 404 and 500 Error Pages](#403-404-and-500-error-pages)
   - [Future Features](#future-features)
+
 - [Technologies Used](#technologies-used)
   - [Languages](#languages)
   - [Frameworks and Software](#frameworks-and-software)
 - [Python Packages](#python-packages)
 - [Testing](#testing)
+  - [Debugging](#debugging)
     - [Manual testing](#manual-testing)
     - [External Testing](#external-testing)
     - [Automated Testing](#automated-testing)
@@ -558,11 +560,6 @@ SENspired's feature-rich environment caters to both users and staff members, ens
 
 
 
-
-
-
-
-
 # Technologies Used
 ## Languages
 
@@ -575,7 +572,7 @@ SENspired's feature-rich environment caters to both users and staff members, ens
 
 - [Bootstrap](https://getbootstrap.com/) - A CSS framework that helps building solid, responsive, mobile-first sites.
 - [Django](https://www.djangoproject.com/) - An MVT framework used to create the Tennis Buddies site.
-- [Figma](https://figma.com) - Used to create wireframes.
+- [Balsamiq](https://balsamiq.com) - Used to create wireframes.
 - [Github](https://github.com/) - Used for hosting the repository.
 - [Heroku](https://heroku.com/) - Used for deploying the application.
 - [Gitpod](https://www.gitpod.io/#get-started) - Used for developing the application.
@@ -587,7 +584,8 @@ SENspired's feature-rich environment caters to both users and staff members, ens
 - [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
 - [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
 - [CI Python Linter](https://pep8ci.herokuapp.com/#) - Used for validation python code.
-- [Lucid Charts](https://lucidchart.com/) - for creating my ERD Diagram
+- [Lucid Charts](https://lucidchart.com/) - For creating my ERD Diagram
+- [Photo Director 365](https://www.cyberlink.com/products/powerdirector-video-editing-software/overview_en_GB.html?r=1) - For editing the images.
 
 [Back to top](#contents)
 
@@ -633,7 +631,36 @@ Following packages and libraries were installed and are located in requirements.
 
 [Back to top](#contents)
 
+
+# Testing
+
+### Debugging
+
+In the course of this project, I encountered numerous debugging challenges, albeit regrettably, I neglected to thoroughly document these troubleshooting endeavors. The crux of my debugging efforts primarily revolved around establishing seamless connectivity between the backend and frontend components of the site. As the project neared its conclusion, a vexing issue materialized in the form of an enigmatic white screen on the deployed site. Fortuitously, my disciplined habit of regular GitHub pushes allowed me to meticulously trace the origins of this anomaly, providing valuable insights into its resolution.
+
+### Manual testing
+
+  - I used manual testing throughout the whole development phase of the project. Mainly:
+  - I deployed early to avoid any last minute issues and checked my local and life site periodically. With the live site, I could check responsiveness from early on on different devices.
+  - I attended to any errors which I came across during development process.
+  - I used validators to check my HTML, CSS and backend code.
+  - For each of the user stories I wrote down clear acceptance criteria and tasks which had to be done to meet those criteria. Only after I had met all the conditions, did I move the user story to done.
+
+### External Testing
+
+  All external testing is a part of a separate testing [file](/TESTING.md).
+
+### Automated Testing
+
+I had not managed to do automated testing for this application, but I want to make it a regular part of my development process in my future projects.
+
+[Back to top](#contents)
+
 # Acknowledgements
 
 - Acknowledgments to **Lucia Ferencik** are extended with gratitude for providing a valuable framework that served as a guiding inspiration in structuring my own readme. Their contribution has been instrumental in shaping the organisation and clarity of my project documentation.
 See their amazing work [here](https://github.com/lucia2007/tennis_buddies/blob/main/README.md?plain=1).
+
+
+- I discovered a meticulously crafted event management system meticulously designed by **Evenword**, which served as the foundation for shaping the blueprint of my own event model. Dive into the intricacies of their exceptional work by exploring it [here](https://medium.com/@Evenword/building-an-event-management-system-using-django-27773378a19d).
+
