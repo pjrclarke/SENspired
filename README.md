@@ -25,26 +25,26 @@ Please access the website through this link: [SENspired](https://senspired-efbab
   - [Objective](#objective)
   - [Site User's Goal](#site-users-goal)
   - [Site Owner's Goal](#site-owners-goal)
-- [User Experience (UX) user](#user-experience-ux-user)
+  - [User Experience (UX) user](#user-experience-ux-user)
   - [Primary Goal](#primary-goal)
-    - [First Time Visitor](#first-time-visitor)
-    - [Returning Visitor](#returning-visitor)
-    - [Frequent Visitor](#frequent-visitor)
-- [User Experience (UX) Site owner](#user-experience-ux-site-owner)
+  - [First Time Visitor](#first-time-visitor)
+  - [Returning Visitor](#returning-visitor)
+  - [Frequent Visitor](#frequent-visitor)
+  - [User Experience (UX) Site owner](#user-experience-ux-site-owner)
   - [User Stories](#user-stories)
-- [Project Management](#project-management)
+  - [Project Management](#project-management)
 - [First Client Meeting](#first-client-meeting)
     - [User Access / Admin Access](#user-access--admin-access)
     - [Current web design](#current-web-design)
     - [Next Steps](#next-steps)
-- [Creative Process](#creative-process)
+    - [Creative Process](#creative-process)
     - [Logo Design](#logo-design)
         - [Current Logo](#current-logo)
         - [New logo Designs](#new-logo-designs)
-- [Design Prototype](#design-prototype)
-    - [Wireframes](#wireframes)
-        - [Desktop](#desktop)
-        - [Mobile](#mobile)
+    - [Design Prototype](#design-prototype)
+      - [Wireframes](#wireframes)
+          - [Desktop](#desktop)
+          - [Mobile](#mobile)
 - [Second Client Meeting](#second-client-meeting)
     - [Design Choices](#design-choices)
         - [Typography](#typography)
@@ -52,48 +52,18 @@ Please access the website through this link: [SENspired](https://senspired-efbab
     - [Database Schema (ERD)](#database-schema-erd)
         - [Models](#models)
 - [Third Client Meeting](#third-client-meeting)
-- [Site Structure](#site-structure)
-
-
+    - [Site Structure](#site-structure)
     -  [Features](#features)
-
-
-
-  - [Site Responsive Navigation Bar](#site-responsive-navigation-bar)
-  - [Carousel](#carousel)
-  - [Footer](#footer)
-  - [Home Page](#home-page)
-  - [Find the Perfect Buddy Page](#find-the-perfect-buddy-page)
-    - [Buddy Search](#buddy-search)
-    - [Future Features for Buddy Search](#future-features-for-buddy-search)
-    - [Buddy Details](#buddy-details)
-    - [Future Features for Buddy Matching](#future-features-for-buddy-matching)
-  - [Booking of the courts](#booking-of-the-courts)
-    - [Booking requirements](#booking-requirements)
-    - [Making a reservation](#making-a-reservation)
-    - [Edit/Delete Functionality](#editdelete-functionality)
-    - [Staff Dashboard](#staff-dashboard)
-    - [Bookings in the past](#bookings-in-the-past)
-    - [Future features for Booking](#future-features-for-booking)
-  - [Contact Us page](#contact-us-page)
-    - [Inquiry Confirmation Message](#inquiry-confirmation-message)
-    - [Future Features for Contact Us](#future-features-for-contact-us)
-      - [CLI Message](#cli-message)
-  - [Profile Icon](#profile-icon)
-    - [Contact Info](#contact-info)
-      - [Add Contact Info](#add-contact-info)
-      - [View Added Contact Info](#view-added-contact-info)
-      - [Edit Contact Info](#edit-contact-info)
-      - [Delete Contact Info](#delete-contact-info)
-    - [Buddy Profile](#buddy-profile)
-      - [Add Buddy Profile](#add-buddy-profile)
-      - [View Added Buddy Details](#view-added-buddy-details)
-      - [Edit Buddy Details](#edit-buddy-details)
-      - [Delete Buddy Details](#delete-buddy-details)
-    - [Your Bookings](#your-bookings)
-  - [Sign Up Page](#sign-up-page)
-  - [Sign In Page](#sign-in-page)
-  - [Logout Page](#logout-page)
+      - [Navigation](#navigation) 
+          - [The Logo](#the-logo)
+          - [The Menu](#the-menu)
+          - [Log In / Sign In](#log-in--sign-in)
+            - [Log In / Sign In Menu](#log--sign-in-menu)
+            - [Admin Menu](#admin-menu)
+            - [User Menu](#user-menu)
+          - [Footer](#footer)
+          - [User Side Site](#user-side-site)
+ 
     - [Future Features Sign in functionality](#future-features-sign-in-functionality)
   - [403, 404 and 500 Error Pages](#403-404-and-500-error-pages)
   - [Future Features](#future-features)
@@ -509,7 +479,7 @@ These models collectively contribute to the seamless functioning of SENspired, e
 
 # Third Client Meeting
 
-In our third meeting, I communicated my intention to develop functionalities allowing admins to create events and users to initiate room booking requests. This pivotal step aimed to enhance the platform's capabilities and offer a more comprehensive user experience.
+In our third meeting, I communicated my intention to only develop functionalities allowing admins to create events and users to initiate room booking requests. This pivotal step aimed to enhance the platform's capabilities and offer a more comprehensive user experience.
 
 During our discussion on typography, we collectively agreed that Quicksand, coupled with the addition of the 'Finger Paint' font, would best capture the desired visual style. This selection ensured a harmonious blend of professionalism and a touch of creativity, aligning perfectly with SENspired's ethos.
 
@@ -548,13 +518,147 @@ Staff members hold the authority to review and take action on booking requests. 
 
 SENspired's feature-rich environment caters to both users and staff members, ensuring a tailored experience that aligns with their specific roles and needs within the platform.
 
+# Features
+
+Prepare to delve into a curated showcase of key features from the site as I guide you through a detailed exploration. We'll navigate through various sections, and I'll provide insightful explanations for each distinct area. Our journey begins with an in-depth look at the sleek and user-friendly navigation menu, offering a glimpse into the sophisticated user experience that the site has to offer.
+
+## Navigation
+
+![Alt text](media/readmeimages/nav1.png)
+<hr>
+
+
+### The Logo
+
+SENspired proudly features its distinctive logo, a symbol of brand identity that remains true to its current design. This deliberate choice reinforces continuity and familiarity for users, establishing a visual anchor within the navigation experience.
+
+<details><summary><b>Navigation Logo</b></summary>
+
+![Alt text](media/readmeimages/navlogo.png)
+</details>
+<br>
+<hr>
+
+
+### The Menu
+
+Immerse yourself in a vibrant array of colors as the menu unfolds its playful tapestry. Each menu item is thoughtfully adorned with its own unique hue, contributing to the lively and colorful ambiance that characterizes SENspired. This dynamic choice not only adds a touch of visual delight but also reflects the brand's spirited and energetic essence.
+
+<details><summary><b>Navigation Menu</b></summary>
+
+![Alt text](media/readmeimages/navmenu.png)
+</details>
+<br>
+<details><summary><b> Responsive Navigation Menu 
+</b></summary>
+
+![Alt text](media/readmeimages/navmenusmall.png)
+</details>
+<br>
+<hr>
+
+### Log In / Sign In
+
+In a nuanced approach, the Log In / Sign In element takes a more subdued stance. This intentional subtlety ensures that the captivating colors of the menu take center stage, without the login feature overshadowing the playful vibrancy. It serves as a seamless entry point, maintaining a balance between functionality and the site's overall lively aesthetic.
+
+<details><summary><b>Navigation Login</b></summary>
+
+![Alt text](media/readmeimages/navlogin.png)
+</details>
+
+### Log / Sign In Menu 
+
+The Login in menu changes based on who is logged in. 
+
+If no one is logged in then you have the option of logging in or signing up. 
+
+<details><summary><b>Log in / Sign up Menu</b></summary>
+
+![Alt text](media/readmeimages/loginmenu.png)
+</details>
+
+
+### Admin Menu
+
+When signed in as the admin (Senspired), the menu shows the Account Information, **Admin Panel** and a log out option. 
+
+<details><summary><b>Admin Menu</b></summary>
+
+![Alt text](media/readmeimages/loggedinadmin.png)
+</details>
+
+
+### User Menu
+
+When signed in as a general user, the menu shows the Account Information, **My Bookings** and a log out option. 
+
+<details><summary><b>User Menu</b></summary>
+
+![Alt text](media/readmeimages/loggedinuser.png)
+</details>
+<br>
+
+## Footer
 
 
 
+Nestled at the bottom of the page, the Footer serves as a comprehensive repository of essential information for SENspired, offering users a convenient and informative conclusion to their browsing experience. 
+
+![Alt text](media/readmeimages/footer.png)
+
+**Address:**
+<br>
+The Footer is anchored by the physical presence of SENspired, as it graciously provides the official address. This tangible detail adds a touch of authenticity and establishes a real-world connection for users seeking to engage with the brand.
+
+**Social Icons:**
+<br>
+Elevating connectivity, the Footer proudly displays an array of social icons. These serve as portals to the digital realms where SENspired is actively present, fostering a seamless bridge between the site's visitors and the brand's vibrant social community.
+
+**List of Links:**
+<br>
+Catering to accessibility, the Footer unfolds a curated list of links, ensuring swift and effortless navigation to key sections of the site. This thoughtful arrangement facilitates a user-friendly experience, allowing visitors to explore diverse facets of SENspired with ease.
+
+In essence, the Footer emerges as a dynamic space where pertinent details converge, providing a holistic snapshot of SENspired's identity, enhancing accessibility, and concluding the user's journey with a wealth of valuable information.
+
+<details><summary><b>Responsive Footer</b></summary>
+
+![Alt text](media/readmeimages/footersmall.png)
+</details>
+<br>
 
 
+# Home Page
+
+Upon first stepping into the Home Page, you are immediately welcomed by a breathtaking tableau of vibrant hues. The focal point is a captivating image featuring a child—none other than the child of SENspired's founders—imbued with a cascade of colorful paintbrush strokes. This artistic composition serves as a visual manifesto, eloquently conveying the essence of SENspired's mission and creative spirit.
+
+![Alt text](media/readmeimages/homepage.png)
+
+Beneath this visually arresting scene unfolds a carefully crafted layout:
+
+![Alt text](media/readmeimages/homepage2.png)
 
 
+Introduction to SENspired's Mission:
+Directly below the resplendent image, a concise yet compelling introduction beckons, offering visitors a glimpse into the heart of what SENspired represents. This brief narrative serves as a portal, inviting users to delve deeper into the purpose and passion that drive the organization.
+
+Book Button and Contact Information:
+Positioned strategically, a prominent "Book" button beckons those ready to embark on a journey with SENspired. Accompanying this, a contact section stands ready to facilitate connections with the organization. This thoughtful arrangement ensures seamless accessibility for those seeking to engage or learn more.
+
+Carousel of Images:
+Adding a dynamic touch to the lower section, a carousel of images captures the attention and imagination of visitors. These images, carefully curated, contribute to the narrative of SENspired's endeavors, providing a visually engaging backdrop to the informational elements.
+
+In essence, the Home Page serves as a vibrant canvas where artistry and purpose converge, setting the stage for an immersive exploration of SENspired's world.
+
+<details><summary><b>Responsive Home Page</b></summary>
+
+![Alt text](media/readmeimages/homepagesmall.png)
+</details>
+<br>
+
+## User Side Site
+
+
+This section will be a user-centric walkthrough focusing on key interactions such as booking an event, reserving a space, and accessing the "My Bookings" section.
 
 
 
