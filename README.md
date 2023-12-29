@@ -55,15 +55,23 @@ Please access the website through this link: [SENspired](https://senspired-efbab
     - [Site Structure](#site-structure)
     -  [Features](#features)
       - [Navigation](#navigation) 
-          - [The Logo](#the-logo)
-          - [The Menu](#the-menu)
-          - [Log In / Sign In](#log-in--sign-in)
-            - [Log In / Sign In Menu](#log--sign-in-menu)
-            - [Admin Menu](#admin-menu)
-            - [User Menu](#user-menu)
-          - [Footer](#footer)
-          - [User Side Site](#user-side-site)
- 
+        - [The Logo](#the-logo)
+        - [The Menu](#the-menu)
+        - [Log In / Sign In](#log-in--sign-in)
+          - [Log In / Sign In Menu](#log--sign-in-menu)
+          - [Admin Menu](#admin-menu)
+          - [User Menu](#user-menu)
+      - [Footer](#footer)
+      - [User Side Site](#user-side-site)
+        - [Event Booking](#event-booking)
+        - [Events](#events)
+        - [Requesting to book the space](#requesting-to-book-the-space)
+        - [User CRUD functionality](#user-crud-functionality)
+        - [My Bookings](#my-bookings)
+      - [Admin Side Site](#admin-side-site)
+        - [Admin Panel](#admin-panel)
+        - [Admin CRUD Functionality](#admin-crud-functionality)
+
     - [Future Features Sign in functionality](#future-features-sign-in-functionality)
   - [403, 404 and 500 Error Pages](#403-404-and-500-error-pages)
   - [Future Features](#future-features)
@@ -549,6 +557,15 @@ Immerse yourself in a vibrant array of colors as the menu unfolds its playful ta
 ![Alt text](media/readmeimages/navmenu.png)
 </details>
 <br>
+
+The bookings option has a dropdown for the user ot select one of two options. Event Booking and Room Booking. I'll talk more on this later. 
+
+<details><summary><b>Booking Drop Down</b></summary>
+
+![Alt text](media/readmeimages/bookingdropdown.png)
+</details>
+<br>
+
 <details><summary><b> Responsive Navigation Menu 
 </b></summary>
 
@@ -660,11 +677,298 @@ In essence, the Home Page serves as a vibrant canvas where artistry and purpose 
 
 This section will be a user-centric walkthrough focusing on key interactions such as booking an event, reserving a space, and accessing the "My Bookings" section.
 
+### Event Booking
+
+On this page you can see all events that the admin has published, you simply click 'View Details' to view more information about the event. 
+
+<details><summary><b>Event Page</b></summary>
+
+![Alt text](media/readmeimages/event1.png)
+
+</details>
+<br>
+<hr>
+
+### Events
+
+This is the area where the user can see more information about this particular event. The user then has an option of 'Back' Or 'Book Event'.
+
+<details><summary><b>Event Overview</b></summary>
+
+![Alt text](media/readmeimages/event2.png)
+</details>
+<br>
+
+When selecting 'Back', the page will redirect back to the event selection page. When selecting 'Book Event' a model will show confirming the details. 
+
+<details><summary><b>Booking Model</b></summary>
+
+![Alt text](media/readmeimages/eventmodel.png)
+</details>
+<br>
+
+The two options then are 'Close' and 'Register Now'. If you select close the model will simply close. If you select 'Register Now', you are then put onto the attendee list (will show this on the admin side later) and an alert shows confirming the registration. 
+
+<details><summary><b>Booking Alert</b></summary>
+
+![Alt text](media/readmeimages/eventconfirmation.png)
+
+</details>
+<br>
+
+Upon confirming the action, the page seamlessly transitions to the detailed view of the event. While the current confirmation mechanism serves its purpose, there is a vision for refining and optimizing this process in the future. Exploring more nuanced and user-friendly approaches is on the horizon, as we strive to enhance the overall experience of confirming actions within the system. Continuous improvement remains a key focus, and future iterations will bring forth a more refined and sophisticated confirmation mechanism.
+<hr>
+
+### Requesting to book the space
+
+Explore the versatility of SENspired, where the power lies in your hands to request and book their exclusive spaces for your unique events. Here, the User-side CRUD functionality takes center stage, allowing you to seamlessly create, manage, and tailor your bookings. SENspired transforms the ordinary into extraordinary, offering you a dynamic platform to curate and host your functions with unparalleled ease and precision. 
 
 
+### User CRUD Functionality
+
+Firstly, select 'booking' on the nav menu and then 'Room Bookings'. 
+
+**CREATE**<br>
+You'll be greeted with a very simplistic form. 
+
+<details><summary><b>Request Form</b></summary>
+
+![Alt text](media/readmeimages/requestpage.png)
+</details>
+<br>
+
+**READ**<br>
+Upon completing the form and selecting 'Save Changes' (with an upcoming refinement to be 'Request Now' in a future release), the journey seamlessly transitions to the My Bookings page. Here, a comprehensive overview of the submitted request unfolds, accompanied by real-time updates on the request's status.
+
+<details><summary><b>My Bookings Overview</b></summary>
+
+![Alt text](media/readmeimages/mybookings.png)
+</details>
+<br>
+
+
+You're presented with a dynamic set of options: Edit and Delete Booking.
+
+**UPDATE**<br>
+Opting for "Edit" seamlessly reopens the form, intelligently prefilling it with the existing information. This thoughtful feature not only streamlines the editing process but also ensures efficiency by eliminating the need to re-enter previously provided details.
+
+<details><summary><b>Request Edit</b></summary>
+
+![Alt text](media/readmeimages/requestedit.png)
+</details>
+<br>
+
+**DELETE**<br>
+Upon saving your edits, you'll be seamlessly redirected to the My Bookings section. However, should you choose "Delete," a modal will gracefully appear, giving you the option to confirm the deletion of the request. <br>
+This ensures a deliberate and intentional user interaction. This two-pronged approach harmonises the efficiency of quick edits with the thoughtful consideration inherent in confirming deletions, offering users a balanced and intuitive experience within the My Bookings realm.
+
+<details><summary><b>Request Delete</b></summary>
+
+![Alt text](media/readmeimages/requestdeletemodel.png)
+</details>
+<br>
+
+Once the request has been deleted. The bookings request section will simply display 'No booking requests found.
+
+<details><summary><b>No Bookings</b></summary>
+
+![Alt text](media/readmeimages/requestnobookings.png)
+</details>
+<br>
+
+With the seamless integration of these features, the user-side CRUD functionality is now fully realised. From creating and editing bookings to the option of gracefully deleting requests, users experience a comprehensive set of actions that enhance their control and engagement within the system. This holistic CRUD implementation ensures a fluid and intuitive journey for users, marking a milestone in the robust functionality of the platform. As we continue to refine and innovate, this user-centric approach lays the foundation for an enriched and dynamic user experience.
+
+## My Bookings
+Within the "My Bookings" section, a curated display awaits, showcasing not only the events that you have successfully registered for but also any pending booking requests. This section serves as a comprehensive overview, allowing you to effortlessly manage your engagements with SENspired. A key functionality unfolds, empowering you to take charge of your schedule—here, cancellation of event bookings is just a click away. Navigate through your booked and requested events with ease, experiencing a seamless blend of functionality and user-friendly control within the "My Bookings" domain.
+
+<details><summary><b>My Bookings page</b></summary>
+
+![Alt text](media/readmeimages/mybookingsoverview.png)
+</details>
+<br>
+
+Here you can cancel your booking for the event. Click 'Cancel Booking'.
+
+<details><summary><b>My Bookings cancel</b></summary>
+
+![Alt text](media/readmeimages/mybookingscancel.png)
+</details>
+<br>
+
+Once that has been cancelled, you're met with a simple message of 'You haven't booked any events yet'.
+
+<details><summary><b>My Bookings - No bookings</b></summary>
+
+![Alt text](media/readmeimages/mybookingsnoevent.png)
+</details>
+<br>
+
+Having thoroughly examined the user-facing perspectives, encompassing the adept demonstration of CRUD functionality and an array of user-centric features, our trajectory now shifts towards the administrative facet. The upcoming phase of our exploration entails a comprehensive examination of administrative viewpoints, wherein we delve into the nuanced perspectives and capabilities designed to empower administrators in orchestrating and managing the diverse dimensions of SENspired. Join us as we unfold the administrative vistas meticulously fashioned to seamlessly integrate efficiency and control for those entrusted with the stewardship of the platform.
+
+# Admin Side Site
+
+To kick off the admin-side CRUD magic, simply click on your username at the top right and choose "Admin Panel." This takes you to the Admin Panel page, where the admin adventure begins! Here, you'll find an array of tools and controls that let you dive into the nitty-gritty of managing SENspired. It all starts with this easy step, opening the door to a world of administrative possibilities within the platform.
+
+## Admin Panel
+
+In the absence of any created events, the list stands empty, a blank canvas awaiting your creative touch. 
+
+<details><summary><b>Admin Panel</b></summary>
+
+![Alt text](media/readmeimages/adminpanel.png)
+</details>
+<br>
+
+### Admin CRUD Functionality
+
+**CREATE**<br>
+Initiating the process is a breeze – just click on 'Create Event.' This straightforward action serves as the gateway to infusing life into the platform with your unique event creations.
+
+<details><summary><b>New Event Form</b></summary>
+
+![Alt text](media/readmeimages/eventnew.png)
+</details>
+<br>
+The event creation process unfolds within a comprehensive form, where every detail finds its place. From the event name and a vivid description to the inclusion of an event image, the date, and time facilitated by user-friendly Bootstrap date and time pickers – every facet is carefully considered. Specify the maximum capacity, pinpoint the event location, and make a pivotal decision with the checkbox: to publish the event for public visibility on the Events Booking page or to keep it discreetly tucked away in the admin panel, accessible only to administrators. 
+<br>
+<Br>
+
+Once saved you're redirected to the 'Admin Panel'.
+
+<details><summary><b>Admin Panel with Event</b></summary>
+
+![Alt text](media/readmeimages/adminpanelevent.png)
+</details>
+<br>
+
+**READ**<br>
+
+In this pivotal juncture, administrators are presented with three discerning options: Overview, Edit, and Delete. Let's embark on an exploration, commencing with the "Overview" option.
+
+<details><summary><b>Admin Panel with Event</b></summary>
+
+![Alt text](media/readmeimages/eventoverview.png)
+</details>
+<br>
+
+Click confirm to come back to the admin panel. <br>
+<br>
+
+**UPDATE**<br>
+Transitioning to the next pivotal step, let's delve into the realm of event management by selecting the "Edit" option.
+
+Upon choosing "Edit," administrators are granted the power to refine and tailor the event details to perfection. The form unfolds once again, preloaded with the existing information, offering a seamless editing experience.
+
+<br>
+
+**DELETE**<br>
+As we venture into the realm of event management, the next focal point is the "Delete" option. Upon selecting this button, a modal gracefully takes center stage, introducing a thoughtful layer of confirmation.
+
+<details><summary><b>Event Delete</b></summary>
+
+![Alt text](media/readmeimages/eventdelete.png)
+</details>
+<br>
+
+The modal, with its gentle appearance, prompts administrators to confirm the deletion of the event.
+
+And there you have it—the admin-side CRUD functionalities all wrapped up! With Overview, Edit, and Delete at your fingertips, administrators can effortlessly navigate and manage events within SENspired. This suite of tools provides a user-friendly approach to create, tweak, and refine events, making the admin experience as smooth as possible
+
+### Booking Requests
+
+The admin panel for booking requests features a well-arranged list, providing a tidy snapshot of user-generated requests. Administrators simply need to decide whether to approve or deny these requests. This streamlined layout simplifies the decision-making process, enabling administrators to handle booking requests efficiently and effortlessly.
+
+<details><summary><b>Booking Requests Admin Panel</b></summary>
+
+![Alt text](media/readmeimages/bookingrequestadmin.png)
+</details>
+<br>
+
+Upon choosing "approve" or "deny," the requests gracefully disappear from the panel, simplifying the administrative interface. A forthcoming feature will introduce separate lists for approved and denied requests, maintaining a comprehensive historical record in the database. This thoughtful approach enhances organizational clarity, providing administrators with nuanced control and a more refined experience in managing requests.
+
+### User side view of decision
+
+Once the admin has made the decision to approve or deny a request, the outcomes are dynamically reflected on the user side. For approved requests, the edit function gracefully fades away, signaling that the request has been successfully approved. On the other hand, denied requests retain the ability to reedit, allowing users to refine and resubmit their requests with updated information. 
+
+<details><summary><b>Booking Requests User Side</b></summary>
+
+![Alt text](media/readmeimages/bookingrequestapprovedeny.png)
+</details>
+<br>
+
+## Sign up
+
+The sign up page is simplistic and straight forward. 
+
+<details><summary><b>Sign Up</b></summary>
+
+![Alt text](media/readmeimages/signup.png)
+</details>
+<br>
+
+## Sign In
+
+The sign in page is simplistic and straight forward. 
+
+<details><summary><b>Sign In</b></summary>
+
+![Alt text](media/readmeimages/login.png)
+
+</details>
+<br>
+
+## Sign Out
+
+The sign out page is simplistic and straight forward. 
+
+<details><summary><b>Sign Out</b></summary>
+
+![Alt text](media/readmeimages/signout.png)
+
+</details>
+<br>
+
+## Coming soon
+
+Acknowledging the ambitious scope of this project, certain pages slated for future development gracefully redirect to the "Coming Soon" page. Recognizing the expansiveness of the vision, this intentional redirection serves as a placeholder, offering users a glimpse into the exciting features and enhancements yet to unfold. As the project progresses, these redirections stand as a testament to the ongoing evolution and growth of SENspired.
+
+<details><summary><b>Coming Soon</b></summary>
+
+![Alt text](media/readmeimages/comingsoon.png)
+
+</details>
+<br>
+
+# Future Features
+
+
+The roadmap for future development unfolds with a rich tapestry of features on the horizon:
+
+**Comprehensive Site Pages**
+<br>
+Elevating user engagement by prioritizing the development of all pages within the site, ensuring a seamless and holistic user experience.
+
+**Payment Options and Basket for Event Bookings**
+<br>
+Introducing enhanced functionality with the integration of payment options and a user-friendly basket system, streamlining the event booking process.
+
+**Expanded Admin Panel**<br>
+Enriching the administrative toolkit with a more comprehensive panel, providing administrators with advanced controls and insights for efficient management.
+
+**SEO Integration**<br>
+Elevating the site's visibility and reach by incorporating robust Search Engine Optimization (SEO) strategies, ensuring optimal discoverability across search engines.
+
+**Nursery Page for Bookings**<br>
+Catering to diverse needs with the introduction of a dedicated page for nursery bookings, offering a tailored experience for users seeking childcare services.
+
+**Blog Functionality**<br>
+Fostering community engagement and information sharing by implementing a blog feature, allowing for the creation and dissemination of relevant content.
+
+As the list of envisioned features continues to expand, each addition is poised to enhance and enrich the overall user experience within the dynamic landscape of SENspired.
 
 
 # Technologies Used
+
 ## Languages
 
 - [Python](https://www.python.org/) - Used for adding functionality to the application.
