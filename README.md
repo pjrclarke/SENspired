@@ -80,31 +80,24 @@ Please access the website through this link: [SENspired](https://senspired-efbab
     - [404](#404)
 - [Fourth Meeting](#fourth-meeting)
   - [Future Features](#future-features)
-
-    
-
-
 - [Technologies Used](#technologies-used)
   - [Languages](#languages)
   - [Frameworks and Software](#frameworks-and-software)
-- [Python Packages](#python-packages)
+  - [Python Packages](#python-packages)
 - [Testing](#testing)
   - [Debugging](#debugging)
-    - [Manual testing](#manual-testing)
-    - [External Testing](#external-testing)
-    - [Automated Testing](#automated-testing)
+  - [Manual testing](#manual-testing)
+  - [External Testing](#external-testing)
+  - [Automated Testing](#automated-testing)
 - [Project Deployment](#project-deployment)
-  - [Create a new GitHub Repository from CI template](#create-a-new-github-repository-from-ci-template)
-  - [Install Django and the supporting libraries](#install-django-and-the-supporting-libraries)
   - [ElephantSQL Database](#elephantsql-database)
   - [Cloudinary API](#cloudinary-api)
-  - [Heroku Deployment](#heroku-deployment)
-  - [To fork the repository on GitHub](#to-fork-the-repository-on-github)
-  - [To create a local clone of a project](#to-create-a-local-clone-of-a-project)
-- [Credits](#credits)
-  - [Content](#content)
-  - [Media](#media)
-  - [Acknowledgements](#acknowledgements)
+  - [Heroku](#heroku)
+  - [Create a new GitHub Repository from CI template](#create-a-new-github-repository-from-ci-template)
+  - [Install Django and the supporting libraries](#install-django-and-the-supporting-libraries)
+  - [To fork the project](#to-fork-the-project)
+  - [To clone the project](#to-clone-the-project)
+- [Acknowledgements](#acknowledgements)
 
 [Back to top](#contents)
 
@@ -1090,11 +1083,215 @@ I had not managed to do automated testing for this application, but I want to ma
 
 [Back to top](#contents)
 
+# Project Deployment
+
+### ElephantSQL Database
+
+[ElephantSQL](https://www.elephantsql.com/) is used for the PostgreSQL database in this project.
+
+To create your own PostgreSQL database, sign-up with your GitHub account and follow these steps:
+- Click **Create New Instance** to initiate a new database.
+- Choose a name, usually the name of the project.
+- Select **Tiny Turtle(Free)** plan.
+- Leave the **Tags** blank.
+- Select **Region** and **Data Center** closest to you.
+- Afterwards, click on the new database name, where you can view the db URL and Password. Copy the URL and enter the address into your **config vars in Heroku** and into your `env.py` file.
+
+[Back to top](#contents)
+
+### Cloudinary API
+
+[Cloudinary API](https://cloudinary.com/) is used to store media assets online.
+
+In order to retrieve your Cloudinary API key, you must create an account and log in.
+- Choose 'Programmable Media for image and video API' for 'primary interest'.
+- Copy your **API Environment Variable** from your Cloudinary Dashboard.
+- Remove the `CLOUDINARY_URL=` from the API value and use the key in **config vars in Heroku** and in your `env.py`.
+
+### Heroku 
+
+- Go on to [Heroku](https://www.heroku.com/) website and [log in](https://id.heroku.com/login) if you already have an account or [sign up](https://signup.heroku.com/) if you don't.
+- Click on the "New" button on the top right of the home page and select "Create new App" from the drop-down menu.
+- In the "App name" field enter the name of your app. This name has to be unique.
+    - Heroku displays a green tick if your app name is available.
+- In the "Choose a region" field choose either the United States or Europe based on your location.
+- Click the "Create app" button.
+- Next page, top centre of the screen, select the "Settings" tab.
+- In the "Config Vars" section, click on the "Reveal config Vars" button.
+- In this section you need to enter your google sheets credentials.
+    1. Type the name of the credentials (CREDS in my case) file into the "KEY" field.
+    2. Open your IDE and find CREDS.json in your project files.
+    3. Copy/paste everything in this file to the "VALUE" field and click the "Add" button.
+- Just below in the "Buildpacks" section click on the "Add buildback" button. Buildpacks have to be installed in this order.
+    1. Click on the "Python" button to select it and then the "Save changes" button.
+    2. Click again on the "Add buildback" button.
+    3. Click on the "nodejs" button to select it and then the "Save changes" button.
+- Go back to the top of the screen and select the "Deploy" tab.
+- In the "Deployment method" section select "GitHub".
+    1. In "Connect to GitHub" click on the "Search" button. Find the project repository in the list and click on the "Connect" button.
+    2. Scroll to the bottom of that page. Click on the "Enable Automatic Deploys" button to update the deploy also when you push a new commit to GitHub.
+    3. At the very bottom of the page click on the "Deploy Branch" button.
+- You will see build log scrolling at the bottom of the screen after that. When successfully finished building the app, you should see the link to your app.
+- Also add the `CLOUDINARY_URL`, `DATABASE_URL` and the `SECRET_KEY`. The values are identical to those entered into the `env.py` file.
+- `DISABLE_COLLECTSTATIC` variable is needed only for the initial deployment, later this variable must be removed.
+
+
+[Back to top](<#contents>)
+<hr>
+
+### Create a new GitHub Repository from CI template
+
+- Create a GitHub repository from the [Code Institute template](https://github.com/Code-Institute-Org/gitpod-full-template) by following the link and then click 'Use this template'.
+
+- Fill in the needed details as stated in the screenshot below and then click 'Create Repository From Template'. The name you choose must be unique.
+
+- When the repository is created, click the green 'Gitpod' button.
+
+[Back to top](#contents)
+
+## Install Django and the supporting libraries
+
+- To install Django and the supporting libraries, type the commands below.
+
+* ```pip3 install 'django<4' gunicorn```
+* ```pip3 install dj_database_url psycopg2```
+* ```pip3 install dj3-cloudinary-storage```
+
+- When Django and the libraries are installed we need to create a requirements file.
+
+* ```pip3 freeze --local > requirements.txt``` - This will create and add required libraries to requirements.txt
+
+- Create the project.
+
+* ```django-admin startproject YOUR_PROJECT_NAME .``` - This will create your project
+
+- When the project is created, we can now create the application.
+
+* ```django-admin startapp APP_NAME``` - This will create your application
+
+- To create a superuser type in the following code:
+`python3 manage.py createsuperuser`
+
+You will be asked to enter credentials after which the superuser is created.  
+
+- We now need to add the application to settings.py
+
+- Now do your first migration and run the server to test that everything works as expected. This is done by writing the commands below.
+
+* ```python3 manage.py migrate``` - This will migrate the changes.
+* ```python3 manage.py runserver``` - This runs the server. To test it, click the 'open browser' button that will be visible after the command is run.
+
+- Create `env.py` file at the root level and include the following environment variables. Don't forget to add the `env.py` file in the `.gitignore` in order to keep your secret information from becoming unsafe:
+
+`import os`
+
+`os.environ["CLOUDINARY_URL"] = "insert your own Cloudinary API key here"`
+
+`os.environ["DATABASE_URL"] = "insert your own ElephantSQL database URL here"`
+
+`os.environ["SECRET_KEY"] = "this can be any random secret key"`
+
+`os.environ["DEVELOPMENT"] = '1'`
+
+The last variable is for local development only and must not be included in production/deployment/config vars in Heroku.
+
+- In the `settings.py` add the following code under `from pathlib import Path`:
+
+`import os`
+
+`import dj_database_url`
+
+`if os.path.isfile("env.py"):`
+
+`import env`
+
+* Replace the original unsafe SECRET_KEY with the following code:
+
+`SECRET_KEY = os.environ.get('SECRET_KEY')`
+
+* Set `DEBUG = "DEVELOPMENT" in os.environ`. This allows us to have DEBUG set to True when developing locally, but set to False when deployed to Heroku.
+
+* Replace the original `DATABASES` code with the following lines (this allows us to use the postgres database instead of the sqlite3 databases):
+
+`
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+  }
+`
+- Save all the files and migrate the changes:
+`python3 manage.py migrate`
+
+* Add Cloudinary Libraries to the "INSTALLED_APPS" in the following order (the order must be adhered to):
+
+* Add the following rows to the settings.py file for Django to be able to use and store static files:
+
+
+* Link the file to the Heroku templates directory:
+
+* Add Heroku app and localhost to ALLOWED_HOSTS so the application can work through Heroku
+
+* Create the following folders at the top level directory:
+  * media
+  * static
+  * templates
+  
+* Create a file called **Procfile** and add the following line in it:
+`web: gunicorn PROJ_NAME.wsgi`
+
+* Save all the files and do the first commit and push to GitHub:
+  * `git add .`
+  * `git commit -m "Deployment Commit"`
+  * `git push`
+
+[Back to top](#contents)
+
+## To fork the project ##
+
+
+A copy of the repository can be made by forking the github account. This is the safest way to view and make changes as it won't have any effect on the original repository. The steps to fork the repository as as follows;
+
+
+- Log into Github and find the [repository](https://github.com/pjrclarke/senspired).
+- On the right hand side of the screen, there is a button called 'Fork'. Select this for the repository onto this github account.
+
+![Fork](media/readmeimages/fork.png)
+
+[Back to top](<#contents>)
+<hr>
+
+
+## To clone the project ##
+
+
+The method to clone this repository is as follows;
+
+
+- Under the repository name, click on the clone tab.
+- Once selected, click the copy to clipboard icon.
+
+![Alt text](media/readmeimages/clone.png)
+
+
+
+- In the IDE chosen to clone the project to, open gitbash.
+- Change the working directory to the location you want the cloned directory to be made.
+- Type "git clone" in the terminal and then paste the URL copied from github.
+- Press Enter - The clone is now created.
+
+
+[Back to top](<#contents>)
+<hr>
+
 # Acknowledgements
+
+- The site was completed as a Portfolio Project 4 piece for the Full Stack Software Developer (e-Commerce) Diploma at the [Code Institute](https://codeinstitute.net/). As such I would like to thank my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/), the Slack community, and all at the Code Institute for their help and support.
 
 - Acknowledgments to **Lucia Ferencik** are extended with gratitude for providing a valuable framework that served as a guiding inspiration in structuring my own readme. Their contribution has been instrumental in shaping the organisation and clarity of my project documentation.
 See their amazing work [here](https://github.com/lucia2007/tennis_buddies/blob/main/README.md?plain=1).
 
-
 - I discovered a meticulously crafted event management system meticulously designed by **Evenword**, which served as the foundation for shaping the blueprint of my own event model. Dive into the intricacies of their exceptional work by exploring it [here](https://medium.com/@Evenword/building-an-event-management-system-using-django-27773378a19d).
 
+
+- I extend my sincere gratitude to my esteemed hackathon teammates, [Sean Meade](https://github.com/sean-meade) and [Tomislav Dukez](https://github.com/tomdu3), for their invaluable assistance. Their expertise and guidance proved instrumental in deepening my understanding of backend intricacies, significantly propelling the progress of my work. Their collaborative spirit and support were pivotal contributors to the project's success.
+
+Paul Clarke. 2023. (Just)

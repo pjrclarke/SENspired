@@ -1,4 +1,3 @@
-// sending event ot button for modals 
 
 $(document).on("click", ".delete_javascript", function () {
     var bookingID = $(this).data('id');
