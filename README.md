@@ -34,47 +34,55 @@ Please access the website through this link: [SENspired](https://senspired-efbab
   - [User Stories](#user-stories)
   - [Project Management](#project-management)
 - [First Client Meeting](#first-client-meeting)
-    - [User Access / Admin Access](#user-access--admin-access)
-    - [Current web design](#current-web-design)
-    - [Next Steps](#next-steps)
-    - [Creative Process](#creative-process)
-    - [Logo Design](#logo-design)
-        - [Current Logo](#current-logo)
-        - [New logo Designs](#new-logo-designs)
-    - [Design Prototype](#design-prototype)
-      - [Wireframes](#wireframes)
-          - [Desktop](#desktop)
-          - [Mobile](#mobile)
+  - [User Access / Admin Access](#user-access--admin-access)
+  - [Current web design](#current-web-design)
+  - [Next Steps](#next-steps)
+  - [Creative Process](#creative-process)
+  - [Logo Design](#logo-design)
+      - [Current Logo](#current-logo)
+      - [New logo Designs](#new-logo-designs)
+  - [Design Prototype](#design-prototype)
+    - [Wireframes](#wireframes)
+      - [Desktop](#desktop)
+      - [Mobile](#mobile)
 - [Second Client Meeting](#second-client-meeting)
     - [Design Choices](#design-choices)
-        - [Typography](#typography)
-        - [Color Scheme](#color-scheme)
+      - [Typography](#typography)
+      - [Color Scheme](#color-scheme)
     - [Database Schema (ERD)](#database-schema-erd)
-        - [Models](#models)
+      - [Models](#models)
 - [Third Client Meeting](#third-client-meeting)
-    - [Site Structure](#site-structure)
-    -  [Features](#features)
-      - [Navigation](#navigation) 
-        - [The Logo](#the-logo)
-        - [The Menu](#the-menu)
-        - [Log In / Sign In](#log-in--sign-in)
-          - [Log In / Sign In Menu](#log--sign-in-menu)
-          - [Admin Menu](#admin-menu)
-          - [User Menu](#user-menu)
-      - [Footer](#footer)
-      - [User Side Site](#user-side-site)
-        - [Event Booking](#event-booking)
-        - [Events](#events)
-        - [Requesting to book the space](#requesting-to-book-the-space)
-        - [User CRUD functionality](#user-crud-functionality)
-        - [My Bookings](#my-bookings)
-      - [Admin Side Site](#admin-side-site)
-        - [Admin Panel](#admin-panel)
-        - [Admin CRUD Functionality](#admin-crud-functionality)
-
-    - [Future Features Sign in functionality](#future-features-sign-in-functionality)
-  - [403, 404 and 500 Error Pages](#403-404-and-500-error-pages)
+  - [Site Structure](#site-structure)
+  -  [Features](#features)
+    - [Navigation](#navigation) 
+      - [The Logo](#the-logo)
+      - [The Menu](#the-menu)
+      - [Log In / Sign In](#log-in--sign-in)
+        - [Log In / Sign In Menu](#log--sign-in-menu)
+        - [Admin Menu](#admin-menu)
+        - [User Menu](#user-menu)
+    - [Footer](#footer)
+    - [User Side Site](#user-side-site)
+      - [Event Booking](#event-booking)
+      - [Events](#events)
+      - [Requesting to book the space](#requesting-to-book-the-space)
+      - [User CRUD functionality](#user-crud-functionality)
+      - [My Bookings](#my-bookings)
+    - [Admin Side Site](#admin-side-site)
+      - [Admin Panel](#admin-panel)
+      - [Admin CRUD Functionality](#admin-crud-functionality)
+    - [Booking Requests](#booking-requests)
+      - [UserSide View of Decision](#user-side-view-of-decision)
+    - [Sign Up](#sign-up)
+    - [Sign In](#sign-in)
+    - [Sign out](#sign-out)
+    - [Coming Soon](#coming-soon)
+    - [404](#404)
+- [Fourth Meeting](#fourth-meeting)
   - [Future Features](#future-features)
+
+    
+
 
 - [Technologies Used](#technologies-used)
   - [Languages](#languages)
@@ -937,12 +945,30 @@ Acknowledging the ambitious scope of this project, certain pages slated for futu
 ![Alt text](media/readmeimages/comingsoon.png)
 
 </details>
+
+
+## 404
+
+A simplistic 404 page directing the users back home. 
+
+<details><summary><b>404</b></summary>
+
+![Alt text](media/readmeimages/404.png)
+</details>
 <br>
+
+# Fourth Meeting
+
+In the culminating fourth meeting with the client, the veil was lifted, revealing the website to them for the first time. The impact of a week's worth of diligent work was palpable, and the client, understandably, found themselves overwhelmed by the fruition of the collective effort.
+
+Expressing satisfaction with the entire process, the client acknowledged the dedication and skill that had been invested in bringing their vision to life. Naturally, in the spirit of collaboration, feedback was shared, providing valuable insights for further refinement and enhancement, should the decision be made to advance with the project.
+
+With the groundwork firmly laid and the client's input integrated, the final week is dedicated to the crucial phases of debugging and testing. This meticulous process ensures the site's robustness, functionality, and seamless user experience, marking the concluding chapter in the development journey of SENspired.
 
 # Future Features
 
 
-The roadmap for future development unfolds with a rich tapestry of features on the horizon:
+SENspired had expressed their interest in some of these features. As well as that, the roadmap for future development unfolds with a rich tapestry of features on the horizon:
 
 **Comprehensive Site Pages**
 <br>
