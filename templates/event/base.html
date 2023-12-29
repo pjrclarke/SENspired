@@ -10,13 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Finger+Paint&family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <!-- favicvon -->
     <link rel="apple-touch-icon" sizes="180x180" href='{% static "favicon/apple-touch-icon.png" %}'>
     <link rel="icon" type="image/png" sizes="32x32" href='{% static "favicon/favicon-32x32.png" %}'>
@@ -44,80 +44,82 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto mr-auto">
-                <li class="nav-item mr-4">
-                    <a class="nav-link red text-dark" aria-current="page" href="{% url 'home' %}">
-                        <i class="fas fa-home animate__animated animate__jello"></i> Home
-                    </a>
-                </li>
-                <li class="nav-item dropdown mr-4">
-                    <a class="nav-link orange text-dark dropdown-toggle" href="#" id="bookingDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-book animate__animated animate__jello"></i> Bookings
-                    </a>
-                    <div class="dropdown-menu text-dark" aria-labelledby="bookingDropdown">
-                        <!-- Icon for booking an event -->
-                        <a class="dropdown-item text-dark" href="{% url 'event_book' %}">
-                            <i class="fas fa-calendar-alt"></i> Event Bookings
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto mr-auto">
+                    <li class="nav-item mr-4">
+                        <a class="nav-link red text-dark" aria-current="page" href="{% url 'home' %}">
+                            <i class="fas fa-home animate__animated animate__jello"></i> Home
                         </a>
-                        <!-- Icon for booking a room -->
-                        <a class="dropdown-item text-dark" href="{% url 'booking_request' %}">
-                            <i class="fas fa-bed"></i> Room Bookings
+                    </li>
+                    <li class="nav-item dropdown mr-4">
+                        <a class="nav-link orange text-dark dropdown-toggle" href="#" id="bookingDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-book animate__animated animate__jello"></i> Bookings
                         </a>
+                        <div class="dropdown-menu text-dark" aria-labelledby="bookingDropdown">
+                            <!-- Icon for booking an event -->
+                            <a class="dropdown-item text-dark" href="{% url 'event_book' %}">
+                                <i class="fas fa-calendar-alt"></i> Event Bookings
+                            </a>
+                            <!-- Icon for booking a room -->
+                            <a class="dropdown-item text-dark" href="{% url 'booking_request' %}">
+                                <i class="fas fa-bed"></i> Room Bookings
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item mr-4">
+                        <a class="nav-link yellow text-dark" href="{% url 'coming_soon' %}">
+                            <i class="fas fa-images animate__animated animate__jello"></i> Gallery
+                        </a>
+                    </li>
+                    <li class="nav-item mr-4">
+                        <a class="nav-link green text-dark" href="{% url 'coming_soon' %}">
+                            <i class="fas fa-blog animate__animated animate__jello"></i> Blog
+                        </a>
+                    </li>
+                    <li class="nav-item mr-4">
+                        <a class="nav-link blue text-dark" href="{% url 'coming_soon' %}">
+                            <i class="fas fa-clock animate__animated animate__jello"></i> Coming Soon
+                        </a>
+                    </li>
+                </ul>
+                <div class="navbar-nav">
+                    {% if user.is_authenticated %}
+                    <div class="nav-item dropdown dropleft login-signup">
+                        <a class="nav-link dropdown-toggle mt-3 mb-3" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Hi, {{ user.username|capfirst }}!
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left"
+                            aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="{% url 'account_overview' %}">Account Information</a>
+                            {% if user.is_staff %}
+                            <a class="dropdown-item" href="{% url 'event_list' %}">Admin Panel</a>
+                            {% else %}
+                            <a class="dropdown-item" href="{% url 'booked_list' %}">My Bookings</a>
+                            {% endif %}
+                            <a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a>
+                        </div>
                     </div>
-                </li>
-                <li class="nav-item mr-4">
-                    <a class="nav-link yellow text-dark" href="{% url 'coming_soon' %}">
-                        <i class="fas fa-images animate__animated animate__jello"></i> Gallery
-                    </a>
-                </li>
-                <li class="nav-item mr-4">
-                    <a class="nav-link green text-dark" href="{% url 'coming_soon' %}">
-                        <i class="fas fa-blog animate__animated animate__jello"></i> Blog
-                    </a>
-                </li>
-                <li class="nav-item mr-4">
-                    <a class="nav-link blue text-dark" href="{% url 'coming_soon' %}">
-                        <i class="fas fa-clock animate__animated animate__jello"></i> Coming Soon
-                    </a>
-                </li>
-            </ul>
-            <div class="navbar-nav">
-                {% if user.is_authenticated %}
-                <div class="nav-item dropdown dropleft login-signup">
-                    <a class="nav-link dropdown-toggle mt-3 mb-3" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Hi, {{ user.username|capfirst }}!
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="{% url 'account_overview' %}">Account Information</a>
-                        {% if user.is_staff %}
-                        <a class="dropdown-item" href="{% url 'event_list' %}">Admin Panel</a>
-                        {% else %}
-                        <a class="dropdown-item" href="{% url 'booked_list' %}">My Bookings</a>
-                        {% endif %}
-                        <a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a>
+                    {% else %}
+                    <div class="nav-item dropdown login-signup text-dark h4">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Log In / Sign Up
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="{% url 'account_login' %}">Log In</a>
+                            <a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a>
+                        </div>
                     </div>
+                    {% endif %}
                 </div>
-                {% else %}
-                <div class="nav-item dropdown login-signup text-dark h4">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Log In / Sign Up
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="{% url 'account_login' %}">Log In</a>
-                        <a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a>
-                    </div>
-                </div>
-                {% endif %}
             </div>
         </div>
     </nav>
 
-           
+
 
 
 
@@ -149,7 +151,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="text-center" class="mb-2">Quick Links</h5>
+                    <h5 class="text-center mb-2">Quick Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-dark">Book a Class</a></li>
                         <li><a href="{% url 'coming_soon' %}" class="text-dark mt-3">Book Our Space</a></li>
